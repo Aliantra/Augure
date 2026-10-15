@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#210b1b">
 <meta name="description" content="Áugure — Em busca da palavra perfeita.">
 <title>Áugure</title>
-<link rel="preload" as="image" href="./augure-fundo-4k.webp">
+<link rel="preload" as="image" href="./augure-nebulosa-lima-4k.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
@@ -20,15 +20,18 @@ body{margin:0;background:var(--night);color:var(--cream);font-family:'Cormorant 
 .site-header nav{display:flex;gap:clamp(14px,3vw,32px)}
 .site-header nav a{font-size:clamp(11px,1.3vw,15px);letter-spacing:.21em}
 .hero{position:relative;isolation:isolate;min-height:100svh;display:flex;justify-content:center;align-items:center;overflow:hidden;background:#100719}
-.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:-1;pointer-events:none}
-.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 45% 43% at 50% 50%,rgba(15,5,25,.55),rgba(15,5,25,.2) 55%,transparent)}
-#magic{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
-.hero-content{position:relative;z-index:2;width:min(100%,1100px);text-align:center;padding:100px 12px 110px;pointer-events:none}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;pointer-events:none}
+.hero::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(ellipse 45% 43% at 50% 50%,rgba(15,5,25,.55),rgba(15,5,25,.2) 55%,transparent)}
+/* Letras-estrelas: apenas transform e opacity, sem Canvas ou filtros por quadro. */
+.alphabet-sky{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none;contain:layout paint}
+.sky-glyph{position:absolute;display:block;font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:500;line-height:1;color:#f9d78f;opacity:var(--low,.28);text-shadow:0 0 5px rgba(255,203,107,.5);animation:letterStar var(--duration,8s) ease-in-out var(--delay,0s) infinite alternate;user-select:none}
+@keyframes letterStar{0%{opacity:var(--low,.22);transform:translate3d(-3px,4px,0) rotate(-5deg)}50%{opacity:var(--high,.8);transform:translate3d(3px,-5px,0) rotate(3deg)}100%{opacity:var(--low,.22);transform:translate3d(-2px,2px,0) rotate(0deg)}}
+.hero-content{position:relative;z-index:3;width:min(100%,1100px);text-align:center;padding:100px 12px 110px;pointer-events:none}
 .eyebrow{color:#ead1a2;font-size:clamp(12px,1.45vw,19px);letter-spacing:clamp(.16em,.5vw,.34em);text-shadow:0 0 12px #f6c88050;white-space:nowrap}
 .hero h1{font-weight:500;font-style:italic;font-size:clamp(72px,14.5vw,195px);letter-spacing:-.055em;line-height:1.35;margin:0;padding:.13em .15em .22em;overflow:visible;white-space:nowrap;background:linear-gradient(158deg,#f8b6bc 5%,#e996ac 24%,#c85b87 46%,#f4a5ac 70%,#b95379 92%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 12px #e87b9c55) drop-shadow(0 0 24px #dc6b8636);animation:titleIn 1.2s both}
 .ornament{font-size:clamp(20px,3vw,33px);color:#f5cf8b;text-shadow:0 0 12px #f5c16f8c;line-height:1;margin:5px auto 12px}
 .tagline{font-size:clamp(17px,2vw,25px);font-style:italic;font-weight:400;margin:0;color:#d5d4ae;text-shadow:0 0 12px #210b1b}
-.scroll{position:absolute;z-index:3;bottom:clamp(24px,5vh,65px);left:50%;transform:translateX(-50%);color:#f5c16f;text-decoration:none;font-size:30px;text-shadow:0 0 14px #f5c16f77;animation:scrollFloat 3s ease-in-out infinite}
+.scroll{position:absolute;z-index:4;bottom:clamp(24px,5vh,65px);left:50%;transform:translateX(-50%);color:#f5c16f;text-decoration:none;font-size:30px;text-shadow:0 0 14px #f5c16f77;animation:scrollFloat 3s ease-in-out infinite}
 section{padding:clamp(85px,11vw,145px) clamp(24px,10vw,170px);border-top:1px solid #e8ac7540;background:#210b1b}
 section:nth-of-type(even){background:#2a1023}
 .kicker{color:#f5c16f;letter-spacing:.25em;font-size:clamp(13px,1.6vw,19px)}
@@ -37,34 +40,25 @@ section p{max-width:720px;font-size:clamp(20px,2.1vw,26px);line-height:1.6}
 footer{text-align:center;padding:32px;color:#d5d4ae;font-size:20px}
 @keyframes titleIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 @keyframes scrollFloat{50%{transform:translate(-50%,7px)}}
-@media(max-width:700px){#magic{display:none}.site-header{padding:15px 19px}.hero-content{padding:90px 0 80px}.hero h1{font-size:clamp(67px,19vw,130px);letter-spacing:-.06em;padding:.18em .08em .25em}.eyebrow{font-size:clamp(10px,2.6vw,13px);letter-spacing:.19em}.tagline{font-size:clamp(17px,4.3vw,21px)}.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:-1;pointer-events:none}
-.hero::after{background:radial-gradient(ellipse 75% 35% at 50% 50%,rgba(15,5,25,.6),transparent)}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important}}
-
-/* Teresa: corrupção do cenário, sem apagar o site completamente. */
-.teresa-veil{position:fixed;inset:0;z-index:9999;overflow:hidden;pointer-events:none;visibility:hidden;opacity:0;contain:layout paint}
-.teresa-veil.active{visibility:visible;opacity:1}
-/* A página permanece reconhecível sob a sombra violeta. */
-.teresa-dark{position:absolute;inset:0;background:radial-gradient(ellipse 38% 40% at 50% 48%,rgba(18,10,22,.75),rgba(12,6,17,.68) 62%,rgba(8,4,12,.82) 100%);opacity:0;will-change:opacity}
-.teresa-veil::before{content:"";position:absolute;inset:0;z-index:2;opacity:0;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0 6px,rgba(9,5,13,.12) 7px,transparent 8px);animation:none}
-.teresa-hair{position:absolute;inset:-3%;width:106%;height:106%;z-index:3;overflow:hidden}
-.teresa-hair path{fill:none;stroke:#08060c;stroke-linecap:round;stroke-width:var(--hair-width,4);stroke-dasharray:var(--hair-length,1200);stroke-dashoffset:var(--hair-length,1200);opacity:0}
-.teresa-hair path:nth-child(4n){stroke:#241722}
-.teresa-hair path:nth-child(7n){stroke:#3c2937;stroke-width:1.4}
-.teresa-message{position:absolute;z-index:4;left:5%;right:5%;top:50%;transform:translateY(-50%);text-align:center;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:clamp(15px,1.3vw,19px);font-weight:400;letter-spacing:.065em;color:#c0b6bd;text-shadow:0 1px 3px #0c0710;opacity:0}
-.teresa-veil.active .teresa-dark{animation:teresaCorrupt 5.4s ease-in-out both}
-.teresa-veil.active::before{animation:teresaStatic 5.4s steps(2,end) both}
-.teresa-veil.active .teresa-hair path{animation:teresaCreep 5.4s ease-in-out both;animation-delay:var(--hair-delay,0s)}
-.teresa-veil.active .teresa-message{animation:teresaWhisper 5.4s both}
-body.teresa-shaking .site-header,body.teresa-shaking main,body.teresa-shaking footer{animation:teresaTremor .14s steps(2,end) infinite}
-/* A sombra chega, mas não vira uma tela preta chapada. */
-@keyframes teresaCorrupt{0%,9%{opacity:0}20%{opacity:.25}43%,72%{opacity:1}88%{opacity:.65}100%{opacity:0}}
-@keyframes teresaCreep{0%,8%{stroke-dashoffset:var(--hair-length,1200);opacity:0}18%{opacity:.85}49%,74%{stroke-dashoffset:0;opacity:.95}90%{opacity:.6}100%{stroke-dashoffset:calc(-.18 * var(--hair-length,1200));opacity:0}}
-@keyframes teresaWhisper{0%,42%{opacity:0}49%,68%{opacity:.92}78%,100%{opacity:0}}
-@keyframes teresaStatic{0%,15%,100%{opacity:0}18%,22%{opacity:.18}24%,41%{opacity:0}44%,72%{opacity:.11}76%,86%{opacity:0}88%{opacity:.16}92%{opacity:0}}
-@keyframes teresaTremor{0%{transform:translate(1px,0)}25%{transform:translate(-1px,1px)}50%{transform:translate(0,-1px)}75%{transform:translate(1px,1px)}100%{transform:none}}
+@media(max-width:700px),(pointer:coarse){.sky-glyph:nth-child(n+33){display:none}.site-header{padding:15px 19px}.hero-content{padding:90px 0 80px}.hero h1{font-size:clamp(67px,19vw,130px);letter-spacing:-.06em;padding:.18em .08em .25em}.eyebrow{font-size:clamp(10px,2.6vw,13px);letter-spacing:.19em}.tagline{font-size:clamp(17px,4.3vw,21px)}.hero::after{background:radial-gradient(ellipse 75% 35% at 50% 50%,rgba(15,5,25,.6),transparent)}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important}.sky-glyph{opacity:.55!important}}
+/* Teresa: um único degradê radial fecha a visão pelas bordas. */
+@property --teresa-opening{syntax:'<length>';inherits:false;initial-value:160vmax}
+.teresa-veil{position:fixed;inset:0;z-index:9999;visibility:hidden;pointer-events:none;overflow:hidden;isolation:isolate}
+.teresa-veil.active{visibility:visible}
+.teresa-dark{position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,transparent 0,transparent max(0px,calc(var(--teresa-opening) - 15vmin)),#000 var(--teresa-opening));--teresa-opening:160vmax;opacity:0}
+.teresa-veil.active .teresa-dark{animation:teresaClose 10s linear both}
+.teresa-message{position:absolute;z-index:1;inset:0;display:grid;place-items:center;text-align:center;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:clamp(15px,1.3vw,19px);font-weight:400;letter-spacing:.065em;color:#bdb5bb;text-shadow:0 0 4px #91878c;opacity:0}
+.teresa-message span{display:inline-block}
+.teresa-veil.active .teresa-message{animation:teresaWords 10s linear both}
+.teresa-veil.active .teresa-message span{animation:teresaTextTremor .16s steps(2,end) infinite}
+body.teresa-shaking .site-header,body.teresa-shaking main,body.teresa-shaking footer{animation:teresaTremor .11s steps(2,end) infinite}
+@keyframes teresaClose{0%{opacity:0;--teresa-opening:160vmax}3%{opacity:1}12%{--teresa-opening:100vmax}34%{--teresa-opening:0px}76%{--teresa-opening:0px}97%{opacity:1;--teresa-opening:160vmax}100%{opacity:0;--teresa-opening:160vmax}}
+@keyframes teresaWords{0%,38%{opacity:0}44%{opacity:.95}72%{opacity:.95}79%,100%{opacity:0}}
+@keyframes teresaTremor{0%{transform:translate(1px,0)}25%{transform:translate(-2px,1px)}50%{transform:translate(1px,-1px)}75%{transform:translate(-1px,2px)}100%{transform:none}}
+@keyframes teresaTextTremor{0%{transform:translate(0,0)}25%{transform:translate(.7px,-.4px)}50%{transform:translate(-.8px,.5px)}75%{transform:translate(.4px,.8px)}100%{transform:translate(0,0)}}
 @media(max-width:700px),(pointer:coarse){.teresa-veil{display:none!important}}
-@media(prefers-reduced-motion:reduce){body.teresa-shaking .site-header,body.teresa-shaking main,body.teresa-shaking footer{animation:none!important}}
+@media(prefers-reduced-motion:reduce){body.teresa-shaking .site-header,body.teresa-shaking main,body.teresa-shaking footer,.teresa-veil.active .teresa-message span{animation:none!important}}
 </style>
 </head>
 <body>
@@ -72,197 +66,65 @@ body.teresa-shaking .site-header,body.teresa-shaking main,body.teresa-shaking fo
 <main>
 <div class="hero" id="inicio">
 <img class="hero-bg" src="./augure-fundo-4k.webp" alt="" fetchpriority="high" decoding="async">
-<canvas id="magic" aria-hidden="true"></canvas>
-<div class="hero-content">
-<div class="ornament" aria-hidden="true">✧</div>
-<div class="eyebrow">ACANTHUS ✦ MYSTERIUM</div>
-<h1>Áugure</h1>
-<div class="ornament" aria-hidden="true">✧</div>
-<p class="tagline">Em busca da palavra perfeita.</p>
-</div>
+<div class="alphabet-sky" id="alphabet-sky" aria-hidden="true"></div>
+<div class="hero-content"><div class="ornament" aria-hidden="true">✧</div><div class="eyebrow">ACANTHUS ✦ MYSTERIUM</div><h1>Áugure</h1><div class="ornament" aria-hidden="true">✧</div><p class="tagline">Em busca da palavra perfeita.</p></div>
 <a class="scroll" href="#historia" aria-label="Ir para a história">⌄</a>
 </div>
 <section id="historia"><div class="kicker">I · ERA UMA VEZ</div><h2>Entre o Ontem e o Amanhã</h2><p>Algumas histórias são escritas com tinta. Outras, com os fios invisíveis do destino.</p><p>A história de Áugure ainda está sendo contada.</p></section>
 <section id="ficha"><div class="kicker">II · MAGO: O DESPERTAR</div><h2>O Grimório</h2><p>Em breve: Arcanas, magias, méritos e os mistérios de Áugure.</p></section>
 </main><footer>Áugure · Em busca da palavra perfeita.</footer>
-<div id="teresa-veil" class="teresa-veil" aria-hidden="true">
-  <svg class="teresa-hair" viewBox="0 0 1000 700" preserveAspectRatio="none" aria-hidden="true"><g id="teresa-strands"></g></svg>
-  <div class="teresa-dark"></div>
-  <div class="teresa-message">Eu te vejo...</div>
-</div>
+<div id="teresa-veil" class="teresa-veil" aria-hidden="true"><div class="teresa-dark"></div><div class="teresa-message"><span>Eu te vejo...</span></div></div>
+<script>
+/* Constelação alfabética. Posições geradas uma única vez, sem loop de renderização. */
+(()=>{
+'use strict';
+const sky=document.getElementById('alphabet-sky');
+const chars=Array.from('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzÆŒæœαβγδεζηθλμξπρστυφχψω');
+let seed=21873;
+function rand(){seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296}
+function between(a,b){return a+(b-a)*rand()}
+const frag=document.createDocumentFragment();
+for(let i=0;i<56;i++){
+ let x,y,tries=0;
+ do{x=between(3,97);y=between(5,95);tries++}
+ while(x>19&&x<81&&y>32&&y<69&&tries<70);
+ const el=document.createElement('span');el.className='sky-glyph';
+ el.textContent=chars[Math.floor(rand()*chars.length)];
+ el.style.left=x.toFixed(2)+'%';el.style.top=y.toFixed(2)+'%';
+ el.style.fontSize=between(15,28).toFixed(1)+'px';
+ el.style.setProperty('--low',between(.16,.32).toFixed(2));
+ el.style.setProperty('--high',between(.60,.95).toFixed(2));
+ el.style.setProperty('--duration',between(4.8,10.5).toFixed(2)+'s');
+ el.style.setProperty('--delay',(-between(0,11)).toFixed(2)+'s');
+ frag.appendChild(el);
+}
+sky.appendChild(frag);
+})();
+</script>
 <script>
 (()=>{
 'use strict';
-const canvas=document.getElementById('magic');
-const isMobile=matchMedia('(max-width: 700px), (pointer: coarse)').matches;
-// On mobile, the high-resolution background already contains the intricate threads.
-// Avoid an additional continuously redrawn full-screen GPU layer.
-if(isMobile){canvas.remove();return;}
-const ctx=canvas.getContext('2d',{alpha:true});
-if(!ctx)return;
-const motion=matchMedia('(prefers-reduced-motion: reduce)');
-const glyphs='abcdefghijklmnopqrstuvwxyzæœ';
-const curves=[
-[[-.15,.06],[.17,-.10],[.10,.30],[.50,.25]],
-[[-.13,.22],[.30,-.04],[.09,.43],[-.10,.53]],
-[[-.10,.37],[.24,.12],[.10,.12],[.52,.04]],
-[[.50,-.13],[.72,.18],[.92,.06],[1.14,.31]],
-[[.72,-.12],[.77,.29],[1.03,.14],[1.14,.07]],
-[[.87,-.08],[.98,.22],[.80,.37],[1.15,.46]],
-[[-.14,.62],[.25,.45],[.03,.90],[.56,1.13]],
-[[-.15,.80],[.16,.61],[.23,1.02],[.65,1.13]],
-[[-.05,1.10],[.28,.72],[.13,.85],[.57,1.17]],
-[[.43,1.13],[.80,.77],[.89,.93],[1.14,.73]],
-[[.67,1.13],[.80,.65],[1.03,.77],[1.14,.96]],
-[[.90,1.11],[.72,.85],[1.07,.53],[1.15,.55]],
-[[.96,.06],[.72,.32],[.99,.41],[1.15,.54]],
-[[-.13,.45],[.08,.36],[.15,.56],[-.10,.70]],
-[[.06,-.12],[.34,.08],[.25,.19],[.38,.23]],
-[[.94,.88],[.72,.90],[.64,1.08],[.78,1.13]]
-];
-let W=1,H=1,paths=[],stars=[],running=false,raf=0,lastFrame=-Infinity,visible=true;
-let seed=41283;
-function random(){seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296}
-function rnd(a,b){return a+(b-a)*random()}
-function bez(a,b,c,d,t){const u=1-t;return u*u*u*a+3*u*u*t*b+3*u*t*t*c+t*t*t*d}
-function init(){
- const rect=canvas.getBoundingClientRect();W=Math.max(1,rect.width);H=Math.max(1,rect.height);
- // Cap physical resolution: 4K images remain sharp as CSS backgrounds; the transparent effects need less resolution.
- const dpr=Math.min(window.devicePixelRatio||1,1.15,1600/W,1100/H);
- canvas.width=Math.max(1,Math.round(W*dpr));canvas.height=Math.max(1,Math.round(H*dpr));
- ctx.setTransform(dpr,0,0,dpr,0,0);
- seed=41283;paths=[];stars=[];
- const mobile=W<700;
- // One independently moving stroke per gesture, plus a few highlights. No 70-100 parallel paths.
- for(let i=0;i<curves.length;i++){
-  const anchors=curves[i].map(p=>[p[0]+rnd(-.035,.035),p[1]+rnd(-.035,.035)]);
-  const letters=[];const count=mobile?2:4;
-  for(let k=0;k<count;k++)letters.push({u:rnd(.08,.92),speed:rnd(.008,.019),size:rnd(10,15),phase:rnd(0,6),char:glyphs[Math.floor(rnd(0,glyphs.length))]});
-  paths.push({anchors,letters,phase:rnd(0,6),speed:rnd(.24,.44),amp:rnd(3,mobile?9:14),alpha:rnd(.24,.65),width:rnd(.6,1.2)});
- }
- for(let i=0;i<(mobile?35:65);i++)stars.push({x:rnd(0,W),y:rnd(0,H),size:rnd(.45,1.3),phase:rnd(0,6),gold:random()>.25});
+const veil=document.getElementById('teresa-veil');
+const desktop=matchMedia('(min-width: 701px) and (pointer: fine)');
+const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+let typed='',busy=false,finishTimer=0,shakeTimer=0;
+function end(){clearTimeout(finishTimer);clearTimeout(shakeTimer);veil.classList.remove('active');document.body.classList.remove('teresa-shaking');busy=false}
+function begin(){
+ if(busy||!desktop.matches)return;
+ busy=true;typed='';veil.classList.remove('active');void veil.offsetWidth;veil.classList.add('active');
+ if(!reduced.matches){document.body.classList.add('teresa-shaking');shakeTimer=setTimeout(()=>document.body.classList.remove('teresa-shaking'),3500)}
+ finishTimer=setTimeout(end,10100);
 }
-function point(p,u,t){
- const a=p.anchors;
- const x=bez(a[0][0],a[1][0],a[2][0],a[3][0],u)*W;
- const y=bez(a[0][1],a[1][1],a[2][1],a[3][1],u)*H;
- const fade=Math.sin(Math.PI*u);
- return [x+Math.sin(u*6+t*p.speed+p.phase)*p.amp*fade,y+Math.cos(u*5-t*p.speed*.8+p.phase)*p.amp*.7*fade];
-}
-function visibility(x,y){
- const nx=(x-W*.5)/(W*(W<700?.44:.34));
- const ny=(y-H*.49)/(H*(W<700?.30:.33));
- const d=nx*nx+ny*ny;
- return .06+.94*Math.max(0,Math.min(1,(d-.52)/.8));
-}
-function draw(t){
- ctx.clearRect(0,0,W,H);
- ctx.shadowBlur=0;
- for(const s of stars){
-  const alpha=(.17+.22*(.5+.5*Math.sin(t*.6+s.phase)))*visibility(s.x,s.y);
-  ctx.fillStyle=s.gold?`rgba(255,207,127,${alpha})`:`rgba(245,125,166,${alpha*.8})`;
-  ctx.beginPath();ctx.arc(s.x,s.y,s.size,0,Math.PI*2);ctx.fill();
- }
- for(const p of paths){
-  // A single cubic-style stroke built from 28 segments, rather than 42 individually glowing strokes.
-  const pts=[];
-  for(let i=0;i<=28;i++)pts.push(point(p,i/28,t));
-  ctx.lineWidth=p.width;ctx.lineCap='round';ctx.lineJoin='round';ctx.strokeStyle=`rgba(255,199,120,${p.alpha})`;
-  ctx.beginPath();let started=false;
-  for(const [x,y] of pts){
-   if(visibility(x,y)<.13){started=false;continue}
-   if(!started){ctx.moveTo(x,y);started=true}else ctx.lineTo(x,y);
-  }
-  ctx.stroke();
-  // Draw only a handful of bright accents; the background WebP already carries the larger glow.
-  for(const g of p.letters){
-   const u=(g.u+t*g.speed)%1;
-   const [x,y]=point(p,u,t);const alpha=visibility(x,y);
-   if(alpha<.18)continue;
-   ctx.font=`italic ${g.size}px 'Cormorant Garamond',Georgia,serif`;
-   ctx.fillStyle=`rgba(255,219,157,${alpha*.85})`;
-   ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(g.char,x,y);
-  }
- }
-}
-function stop(){running=false;cancelAnimationFrame(raf);raf=0}
-function frame(now){
- if(!running)return;
- // 24fps target. The image itself supplies the intricate static texture between updates.
- if(now-lastFrame>=1000/24){lastFrame=now;draw(now/1000)}
- raf=requestAnimationFrame(frame);
-}
-function update(){
- const shouldRun=!motion.matches&&!document.hidden&&visible;
- if(shouldRun&&!running){running=true;lastFrame=-Infinity;raf=requestAnimationFrame(frame)}
- else if(!shouldRun&&running)stop();
- if(!shouldRun)draw(0);
-}
-init();draw(0);
-const observer=new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;update()},{threshold:0});
-observer.observe(canvas);
-document.addEventListener('visibilitychange',update);
-if(motion.addEventListener)motion.addEventListener('change',update);
-let resizeTimer;
-addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{init();draw(0);update()},200)},{passive:true});
-update();
-})();
-</script>
-
-<script>
-/* Palavra oculta: T E R E S A. Nenhuma tecla precisa ser enviada a um servidor. */
-(()=>{
- 'use strict';
- const veil=document.getElementById('teresa-veil');
- const group=document.getElementById('teresa-strands');
- const desktop=matchMedia('(min-width: 701px) and (pointer: fine)');
- const reduced=matchMedia('(prefers-reduced-motion: reduce)');
- const NS='http://www.w3.org/2000/svg';
- let typed='',busy=false,finishTimer=0;
- // Gera uma única vez cabelos orgânicos com espessuras e curvaturas variadas.
- let seed=1771;
- function rand(){seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296}
- function between(a,b){return a+(b-a)*rand()}
- function createHair(){
-  if(group.childNodes.length)return;
-  const fragment=document.createDocumentFragment();
-  for(let i=0;i<38;i++){
-   const side=i%4;let x,y,endX,endY;
-   if(side===0){x=between(-50,1050);y=-35;endX=between(180,820);endY=between(380,760)}
-   else if(side===1){x=1050;y=between(-40,740);endX=between(100,650);endY=between(110,620)}
-   else if(side===2){x=between(-50,1050);y=735;endX=between(150,850);endY=between(-60,380)}
-   else{x=-50;y=between(-40,740);endX=between(350,900);endY=between(90,600)}
-   const dx=endX-x,dy=endY-y;
-   const bend=between(-210,210),bend2=between(-150,150);
-   const d=`M ${x.toFixed(1)} ${y.toFixed(1)} C ${(x+dx*.25+bend).toFixed(1)} ${(y+dy*.16).toFixed(1)}, ${(x+dx*.52-bend2).toFixed(1)} ${(y+dy*.65).toFixed(1)}, ${endX.toFixed(1)} ${endY.toFixed(1)}`;
-   const path=document.createElementNS(NS,'path');path.setAttribute('d',d);
-   const length=Math.ceil(path.getTotalLength())+1;path.style.setProperty('--hair-length',length);
-   path.style.setProperty('--hair-width',between(.8,7).toFixed(1));
-   path.style.setProperty('--hair-delay',`${between(0,.35).toFixed(2)}s`);
-   fragment.appendChild(path);
-  }
-  group.appendChild(fragment);
- }
- function end(){clearTimeout(finishTimer);veil.classList.remove('active');document.body.classList.remove('teresa-shaking');busy=false}
- function begin(){
-  if(busy||!desktop.matches)return;
-  busy=true;typed='';createHair();
-  // Reinicia as animações caso a palavra seja digitada novamente.
-  veil.classList.remove('active');void veil.offsetWidth;
-  veil.classList.add('active');
-  if(!reduced.matches)document.body.classList.add('teresa-shaking');
-  finishTimer=setTimeout(end,5900);
- }
- document.addEventListener('keydown',event=>{
-  if(event.key==='Escape'&&busy){end();return}
-  if(!desktop.matches||busy||event.ctrlKey||event.metaKey||event.altKey||event.repeat)return;
-  const tag=event.target?.tagName;
-  if(tag==='INPUT'||tag==='TEXTAREA'||tag==='SELECT'||event.target?.isContentEditable)return;
-  if(event.key.length!==1){if(event.key==='Backspace')typed=typed.slice(0,-1);return}
-  typed=(typed+event.key.toLocaleLowerCase('pt-BR')).slice(-6);
-  if(typed==='teresa')begin();
- });
- window.addEventListener('pagehide',end);
+document.addEventListener('keydown',event=>{
+ if(event.key==='Escape'&&busy){end();return}
+ if(!desktop.matches||busy||event.ctrlKey||event.metaKey||event.altKey||event.repeat)return;
+ const tag=event.target?.tagName;
+ if(tag==='INPUT'||tag==='TEXTAREA'||tag==='SELECT'||event.target?.isContentEditable)return;
+ if(event.key.length!==1){if(event.key==='Backspace')typed=typed.slice(0,-1);return}
+ typed=(typed+event.key.toLocaleLowerCase('pt-BR')).slice(-6);
+ if(typed==='teresa')begin();
+});
+window.addEventListener('pagehide',end);
 })();
 </script>
 </body>
