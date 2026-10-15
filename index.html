@@ -24,8 +24,9 @@ body{margin:0;background:var(--night);color:var(--cream);font-family:'Cormorant 
 .hero::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(ellipse 45% 43% at 50% 50%,rgba(15,5,25,.55),rgba(15,5,25,.2) 55%,transparent)}
 /* Letras-estrelas: apenas transform e opacity, sem Canvas ou filtros por quadro. */
 .alphabet-sky{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none;contain:layout paint}
-.sky-glyph{position:absolute;display:block;font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:500;line-height:1;color:#f9d78f;opacity:var(--low,.28);text-shadow:0 0 5px rgba(255,203,107,.5);animation:letterStar var(--duration,8s) ease-in-out var(--delay,0s) infinite alternate;user-select:none}
-@keyframes letterStar{0%{opacity:var(--low,.22);transform:translate3d(-3px,4px,0) rotate(-5deg)}50%{opacity:var(--high,.8);transform:translate3d(3px,-5px,0) rotate(3deg)}100%{opacity:var(--low,.22);transform:translate3d(-2px,2px,0) rotate(0deg)}}
+.sky-glyph{position:absolute;display:block;font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:600;line-height:1;color:#ffe3a0;opacity:0;text-shadow:0 0 5px #ffe7a8,0 0 13px #ffca63,0 0 25px #e8a33b;animation:letterStar var(--duration,7s) ease-in-out var(--delay,0s) infinite;user-select:none}
+/* Cada ciclo começa e termina invisível: a letra muda apenas enquanto apagada. */
+@keyframes letterStar{0%,10%{opacity:0;transform:translate3d(-3px,4px,0)}38%,56%{opacity:var(--high,.95);transform:translate3d(2px,-3px,0)}88%,100%{opacity:0;transform:translate3d(5px,-7px,0)}}
 .hero-content{position:relative;z-index:3;width:min(100%,1100px);text-align:center;padding:100px 12px 110px;pointer-events:none}
 .eyebrow{color:#ead1a2;font-size:clamp(12px,1.45vw,19px);letter-spacing:clamp(.16em,.5vw,.34em);text-shadow:0 0 12px #f6c88050;white-space:nowrap}
 .hero h1{font-weight:500;font-style:italic;font-size:clamp(72px,14.5vw,195px);letter-spacing:-.055em;line-height:1.35;margin:0;padding:.13em .15em .22em;overflow:visible;white-space:nowrap;background:linear-gradient(158deg,#f8b6bc 5%,#e996ac 24%,#c85b87 46%,#f4a5ac 70%,#b95379 92%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 12px #e87b9c55) drop-shadow(0 0 24px #dc6b8636);animation:titleIn 1.2s both}
@@ -65,7 +66,7 @@ body.teresa-shaking .site-header,body.teresa-shaking main,body.teresa-shaking fo
 <header class="site-header"><a href="#inicio">Áugure</a><nav><a href="#historia">HISTÓRIA</a><a href="#ficha">FICHA</a></nav></header>
 <main>
 <div class="hero" id="inicio">
-<img class="hero-bg" src="./augure-fundo-4k.webp" alt="" fetchpriority="high" decoding="async">
+<img class="hero-bg" src="./augure-nebulosa-lima-4k.webp" alt="" fetchpriority="high" decoding="async">
 <div class="alphabet-sky" id="alphabet-sky" aria-hidden="true"></div>
 <div class="hero-content"><div class="ornament" aria-hidden="true">✧</div><div class="eyebrow">ACANTHUS ✦ MYSTERIUM</div><h1>Áugure</h1><div class="ornament" aria-hidden="true">✧</div><p class="tagline">Em busca da palavra perfeita.</p></div>
 <a class="scroll" href="#historia" aria-label="Ir para a história">⌄</a>
@@ -92,10 +93,15 @@ for(let i=0;i<56;i++){
  el.textContent=chars[Math.floor(rand()*chars.length)];
  el.style.left=x.toFixed(2)+'%';el.style.top=y.toFixed(2)+'%';
  el.style.fontSize=between(15,28).toFixed(1)+'px';
- el.style.setProperty('--low',between(.16,.32).toFixed(2));
- el.style.setProperty('--high',between(.60,.95).toFixed(2));
- el.style.setProperty('--duration',between(4.8,10.5).toFixed(2)+'s');
+ el.style.setProperty('--high',between(.75,1).toFixed(2));
+ el.style.setProperty('--duration',between(5.5,10.5).toFixed(2)+'s');
  el.style.setProperty('--delay',(-between(0,11)).toFixed(2)+'s');
+ // A cada novo ciclo, o brilho está apagado; substituímos por outra letra.
+ el.addEventListener('animationiteration',()=>{
+  let next=el.textContent;
+  while(next===el.textContent)next=chars[Math.floor(Math.random()*chars.length)];
+  el.textContent=next;
+ });
  frag.appendChild(el);
 }
 sky.appendChild(frag);
