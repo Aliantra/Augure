@@ -6,6 +6,7 @@
 <meta name="theme-color" content="#210b1b">
 <meta name="description" content="Áugure — Em busca da palavra perfeita.">
 <title>Áugure</title>
+<link rel="preload" as="image" href="./augure-fundo-4k.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
@@ -18,7 +19,8 @@ body{margin:0;background:var(--night);color:var(--cream);font-family:'Cormorant 
 .site-header a{color:#e6d5ca;text-decoration:none;text-shadow:0 1px 12px #210b1b;font-size:clamp(19px,2.2vw,28px)}
 .site-header nav{display:flex;gap:clamp(14px,3vw,32px)}
 .site-header nav a{font-size:clamp(11px,1.3vw,15px);letter-spacing:.21em}
-.hero{position:relative;isolation:isolate;min-height:100svh;display:flex;justify-content:center;align-items:center;overflow:hidden;background:#100719 url('./augure-fundo-4k.webp') center/cover no-repeat}
+.hero{position:relative;isolation:isolate;min-height:100svh;display:flex;justify-content:center;align-items:center;overflow:hidden;background:#100719}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:-1;pointer-events:none}
 .hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 45% 43% at 50% 50%,rgba(15,5,25,.55),rgba(15,5,25,.2) 55%,transparent)}
 #magic{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
 .hero-content{position:relative;z-index:2;width:min(100%,1100px);text-align:center;padding:100px 12px 110px;pointer-events:none}
@@ -35,14 +37,36 @@ section p{max-width:720px;font-size:clamp(20px,2.1vw,26px);line-height:1.6}
 footer{text-align:center;padding:32px;color:#d5d4ae;font-size:20px}
 @keyframes titleIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 @keyframes scrollFloat{50%{transform:translate(-50%,7px)}}
-@media(max-width:700px){.site-header{padding:15px 19px}.hero-content{padding:90px 0 80px}.hero h1{font-size:clamp(67px,19vw,130px);letter-spacing:-.06em;padding:.18em .08em .25em}.eyebrow{font-size:clamp(10px,2.6vw,13px);letter-spacing:.19em}.tagline{font-size:clamp(17px,4.3vw,21px)}.hero::after{background:radial-gradient(ellipse 75% 35% at 50% 50%,rgba(15,5,25,.6),transparent)}}
+@media(max-width:700px){#magic{display:none}.site-header{padding:15px 19px}.hero-content{padding:90px 0 80px}.hero h1{font-size:clamp(67px,19vw,130px);letter-spacing:-.06em;padding:.18em .08em .25em}.eyebrow{font-size:clamp(10px,2.6vw,13px);letter-spacing:.19em}.tagline{font-size:clamp(17px,4.3vw,21px)}.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:-1;pointer-events:none}
+.hero::after{background:radial-gradient(ellipse 75% 35% at 50% 50%,rgba(15,5,25,.6),transparent)}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important}}
+
+/* Manifestação secreta de Teresa — somente desktop */
+.teresa-veil{position:fixed;inset:0;z-index:9999;overflow:hidden;pointer-events:none;visibility:hidden;opacity:0;background:rgba(0,0,0,0);transition:opacity .2s;contain:layout paint}
+.teresa-veil.active{visibility:visible;opacity:1}
+.teresa-dark{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 48%,rgba(0,0,0,.97),#000 83%);opacity:0}
+.teresa-hair{position:absolute;inset:-4%;width:108%;height:108%;overflow:visible}
+.teresa-hair path{fill:none;stroke:#020104;stroke-linecap:round;stroke-width:var(--hair-width,5);stroke-dasharray:var(--hair-length,1800);stroke-dashoffset:var(--hair-length,1800);filter:drop-shadow(0 0 3px #080407)}
+.teresa-hair path:nth-child(4n){stroke:#100910}
+.teresa-hair path:nth-child(7n){stroke:#1c111b;stroke-width:2}
+.teresa-message{position:absolute;left:5%;right:5%;top:50%;transform:translateY(-45%) scale(.96);text-align:center;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:clamp(43px,7.5vw,105px);font-weight:400;letter-spacing:.045em;color:#e0d7d7;text-shadow:2px 2px 0 #290b19,-2px -1px 2px #b0a0a4,0 0 24px #9c687866;opacity:0}
+.teresa-veil.active .teresa-dark{animation:teresaDark 4.8s both}
+.teresa-veil.active .teresa-hair path{animation:teresaGrow 4.8s cubic-bezier(.35,0,.58,1) both;animation-delay:var(--hair-delay,0s)}
+.teresa-veil.active .teresa-message{animation:teresaWords 4.8s both}
+body.teresa-shaking .site-header,body.teresa-shaking main,body.teresa-shaking footer{animation:teresaShake .075s steps(2,end) infinite}
+@keyframes teresaGrow{0%,5%{stroke-dashoffset:var(--hair-length,1800);opacity:0}12%{opacity:1}54%,80%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:calc(-1 * var(--hair-length,1800));opacity:0}}
+@keyframes teresaDark{0%,10%{opacity:0}37%,77%{opacity:1}100%{opacity:0}}
+@keyframes teresaWords{0%,37%{opacity:0;transform:translateY(-44%) scale(.96);filter:blur(7px)}47%,70%{opacity:1;transform:translateY(-50%) scale(1);filter:blur(0)}81%,100%{opacity:0;transform:translateY(-54%) scale(1.04);filter:blur(5px)}}
+@keyframes teresaShake{0%{transform:translate(2px,-1px)}25%{transform:translate(-2px,1px)}50%{transform:translate(1px,2px)}75%{transform:translate(-1px,-2px)}100%{transform:translate(0,0)}}
+@media(max-width:700px),(pointer:coarse){.teresa-veil{display:none!important}}
+@media(prefers-reduced-motion:reduce){body.teresa-shaking .site-header,body.teresa-shaking main,body.teresa-shaking footer{animation:none!important}}
 </style>
 </head>
 <body>
 <header class="site-header"><a href="#inicio">Áugure</a><nav><a href="#historia">HISTÓRIA</a><a href="#ficha">FICHA</a></nav></header>
 <main>
 <div class="hero" id="inicio">
+<img class="hero-bg" src="./augure-fundo-4k.webp" alt="" fetchpriority="high" decoding="async">
 <canvas id="magic" aria-hidden="true"></canvas>
 <div class="hero-content">
 <div class="ornament" aria-hidden="true">✧</div>
@@ -56,11 +80,20 @@ footer{text-align:center;padding:32px;color:#d5d4ae;font-size:20px}
 <section id="historia"><div class="kicker">I · ERA UMA VEZ</div><h2>Entre o Ontem e o Amanhã</h2><p>Algumas histórias são escritas com tinta. Outras, com os fios invisíveis do destino.</p><p>A história de Áugure ainda está sendo contada.</p></section>
 <section id="ficha"><div class="kicker">II · MAGO: O DESPERTAR</div><h2>O Grimório</h2><p>Em breve: Arcanas, magias, méritos e os mistérios de Áugure.</p></section>
 </main><footer>Áugure · Em busca da palavra perfeita.</footer>
+<div id="teresa-veil" class="teresa-veil" aria-hidden="true">
+  <svg class="teresa-hair" viewBox="0 0 1000 700" preserveAspectRatio="none" aria-hidden="true"><g id="teresa-strands"></g></svg>
+  <div class="teresa-dark"></div>
+  <div class="teresa-message">Eu te vejo...</div>
+</div>
 <script>
 (()=>{
 'use strict';
 const canvas=document.getElementById('magic');
-const ctx=canvas.getContext('2d',{alpha:true,desynchronized:true});
+const isMobile=matchMedia('(max-width: 700px), (pointer: coarse)').matches;
+// On mobile, the high-resolution background already contains the intricate threads.
+// Avoid an additional continuously redrawn full-screen GPU layer.
+if(isMobile){canvas.remove();return;}
+const ctx=canvas.getContext('2d',{alpha:true});
 if(!ctx)return;
 const motion=matchMedia('(prefers-reduced-motion: reduce)');
 const glyphs='abcdefghijklmnopqrstuvwxyzæœ';
@@ -168,6 +201,63 @@ if(motion.addEventListener)motion.addEventListener('change',update);
 let resizeTimer;
 addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{init();draw(0);update()},200)},{passive:true});
 update();
+})();
+</script>
+
+<script>
+/* Palavra oculta: T E R E S A. Nenhuma tecla precisa ser enviada a um servidor. */
+(()=>{
+ 'use strict';
+ const veil=document.getElementById('teresa-veil');
+ const group=document.getElementById('teresa-strands');
+ const desktop=matchMedia('(min-width: 701px) and (pointer: fine)');
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+ const NS='http://www.w3.org/2000/svg';
+ let typed='',busy=false,finishTimer=0;
+ // Gera uma única vez cabelos orgânicos com espessuras e curvaturas variadas.
+ let seed=1771;
+ function rand(){seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296}
+ function between(a,b){return a+(b-a)*rand()}
+ function createHair(){
+  if(group.childNodes.length)return;
+  const fragment=document.createDocumentFragment();
+  for(let i=0;i<58;i++){
+   const side=i%4;let x,y,endX,endY;
+   if(side===0){x=between(-50,1050);y=-35;endX=between(180,820);endY=between(380,760)}
+   else if(side===1){x=1050;y=between(-40,740);endX=between(100,650);endY=between(110,620)}
+   else if(side===2){x=between(-50,1050);y=735;endX=between(150,850);endY=between(-60,380)}
+   else{x=-50;y=between(-40,740);endX=between(350,900);endY=between(90,600)}
+   const dx=endX-x,dy=endY-y;
+   const bend=between(-210,210),bend2=between(-150,150);
+   const d=`M ${x.toFixed(1)} ${y.toFixed(1)} C ${(x+dx*.25+bend).toFixed(1)} ${(y+dy*.16).toFixed(1)}, ${(x+dx*.52-bend2).toFixed(1)} ${(y+dy*.65).toFixed(1)}, ${endX.toFixed(1)} ${endY.toFixed(1)}`;
+   const path=document.createElementNS(NS,'path');path.setAttribute('d',d);
+   const length=1400;path.style.setProperty('--hair-length',length);
+   path.style.setProperty('--hair-width',between(1.5,12).toFixed(1));
+   path.style.setProperty('--hair-delay',`${between(0,.65).toFixed(2)}s`);
+   fragment.appendChild(path);
+  }
+  group.appendChild(fragment);
+ }
+ function end(){clearTimeout(finishTimer);veil.classList.remove('active');document.body.classList.remove('teresa-shaking');busy=false}
+ function begin(){
+  if(busy||!desktop.matches)return;
+  busy=true;typed='';createHair();
+  // Reinicia as animações caso a palavra seja digitada novamente.
+  veil.classList.remove('active');void veil.offsetWidth;
+  veil.classList.add('active');
+  if(!reduced.matches)document.body.classList.add('teresa-shaking');
+  finishTimer=setTimeout(end,5500);
+ }
+ document.addEventListener('keydown',event=>{
+  if(event.key==='Escape'&&busy){end();return}
+  if(!desktop.matches||busy||event.ctrlKey||event.metaKey||event.altKey||event.repeat)return;
+  const tag=event.target?.tagName;
+  if(tag==='INPUT'||tag==='TEXTAREA'||tag==='SELECT'||event.target?.isContentEditable)return;
+  if(event.key.length!==1){if(event.key==='Backspace')typed=typed.slice(0,-1);return}
+  typed=(typed+event.key.toLocaleLowerCase('pt-BR')).slice(-6);
+  if(typed==='teresa')begin();
+ });
+ window.addEventListener('pagehide',end);
 })();
 </script>
 </body>
