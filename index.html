@@ -47,6 +47,52 @@ footer{text-align:center;padding:32px;color:#d5d4ae;font-size:20px}
 @keyframes scrollFloat{50%{transform:translate(-50%,7px)}}
 @media(max-width:700px){.site-header{padding:15px 19px}.hero-content{padding:90px 0 80px;width:100%}.hero h1{font-size:clamp(85px,21vw,142px);padding:.17em .07em .23em;letter-spacing:-.065em}.eyebrow{font-size:clamp(10px,2.6vw,13px);letter-spacing:.19em}.ornament{margin:0 auto 20px}.tagline{font-size:clamp(18px,4.7vw,23px)}.hero::after{background:radial-gradient(ellipse 70% 32% at 50% 50%,#200a1cf0 0%,#210b1b9c 53%,transparent 100%)}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important}}
+  
+/* Fundo cósmico da Áugure */
+.hero {
+  background: #100719 url("./fundo.png")
+    center center / cover no-repeat;
+}
+
+/* Remove as nebulosas artificiais antigas */
+.hero::before {
+  display: none;
+}
+
+/* Sombreamento suave para destacar o título */
+.hero::after {
+  background: radial-gradient(
+    ellipse 45% 43% at 50% 50%,
+    rgba(15, 5, 25, 0.55) 0%,
+    rgba(15, 5, 25, 0.2) 55%,
+    transparent 100%
+  );
+}
+
+/* Mantém os efeitos mágicos acima da imagem */
+#magic {
+  z-index: 0;
+}
+
+.hero-content {
+  z-index: 2;
+}
+
+@media (max-width: 700px) {
+  .hero {
+    background-position: center center;
+  }
+
+  .hero::after {
+    background: radial-gradient(
+      ellipse 75% 35% at 50% 50%,
+      rgba(15, 5, 25, 0.6),
+      transparent 100%
+    );
+  }
+}
+
+
 </style>
 </head>
 <body>
