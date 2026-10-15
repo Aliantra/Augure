@@ -1,358 +1,279 @@
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#245c48">
-<title>Áugure | Mago: O Despertar</title>
+<meta name="theme-color" content="#1B2118">
+<meta name="description" content="Áugure — Hanna Virelli Rosebud. Em busca da palavra perfeita.">
+<title>Áugure | Hanna Virelli Rosebud</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,600,40,1;1,9..144,600,40,1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --green: #245c48;
-  --deep-green: #153f34;
-  --mint: #a7f2bc;
-  --pink: #ff65ad;
-  --light-pink: #ffc2df;
-  --gold: #f5cf75;
-  --cream: #fff4e8;
+  --night: #1B2118;
+  --olive: #453E15;
+  --gold: #B7AB4C;
+  --pink: #CD6988;
+  --pale: #E7D5D5;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  color: var(--cream);
-  background: var(--deep-green);
-  font-family: "DM Sans", sans-serif;
+  background: var(--night);
+  color: var(--pale);
+  font-family: 'DM Sans', sans-serif;
   overflow-x: hidden;
 }
 
 header {
   position: relative;
-  z-index: 10;
+  z-index: 5;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 15px;
-  padding: 24px 6%;
-  background: #184637;
-  border-bottom: 1px solid #a7f2bc35;
+  align-items: center;
+  gap: 16px;
+  padding: 21px clamp(20px, 6vw, 90px);
+  border-bottom: 1px solid #b7ab4c38;
+  background: #1b2118e8;
 }
 
-.logo {
-  color: var(--light-pink);
-  font-family: "Fraunces", Georgia, serif;
-  font-size: 26px;
-  font-weight: 600;
+.brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 27px;
+  color: var(--pale);
   text-decoration: none;
 }
 
 nav {
   display: flex;
-  gap: 22px;
+  gap: 23px;
 }
 
 nav a {
-  color: var(--cream);
-  text-decoration: none;
-  font-size: 12px;
+  color: var(--pale);
+  font-size: 11px;
   letter-spacing: 2px;
-  transition: color .3s;
+  text-decoration: none;
 }
 
-nav a:hover {
-  color: var(--pink);
-}
+nav a:hover { color: var(--pink); }
 
 .hero {
+  min-height: calc(100svh - 75px);
   position: relative;
-  min-height: 88vh;
-  min-height: 88svh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  padding: 100px 20px;
   isolation: isolate;
-
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  padding: 100px 18px;
   background:
     radial-gradient(
-      ellipse at 50% 70%,
-      #60b98a90 0%,
-      transparent 55%
+      ellipse at 50% 49%,
+      #453e1580 0%,
+      #453e1533 32%,
+      transparent 69%
     ),
-    radial-gradient(
-      ellipse at 15% 25%,
-      #ef78ae55 0%,
-      transparent 42%
-    ),
-    radial-gradient(
-      ellipse at 90% 20%,
-      #d8bb6955 0%,
-      transparent 40%
-    ),
-    linear-gradient(
-      145deg,
-      #215b48,
-      #34795a 55%,
-      #194638
-    );
+    var(--night);
 }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: -30%;
-  z-index: -1;
-  background:
-    radial-gradient(
-      circle,
-      #ffb8d840,
-      transparent 55%
-    );
-  animation: glow 12s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-  from {
-    transform: translate(-8%, -5%) scale(.9);
-  }
-  to {
-    transform: translate(8%, 7%) scale(1.2);
-  }
-}
-
-.magic {
+#fate {
   position: absolute;
   inset: 0;
-  overflow: hidden;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
+  z-index: -1;
+  opacity: .92;
 }
 
-.symbol {
-  position: absolute;
-  font-family: Georgia, serif;
-  opacity: 0;
-  user-select: none;
-  animation: floatMagic linear infinite;
-  text-shadow: 0 0 15px currentColor;
+#fate path {
+  fill: none;
+  stroke: var(--gold);
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
 }
 
-@keyframes floatMagic {
-  0% {
-    opacity: 0;
-    transform:
-      translate3d(0, 55px, 0)
-      rotate(-20deg);
-  }
-
-  25% {
-    opacity: .85;
-  }
-
-  75% {
-    opacity: .65;
-  }
-
-  100% {
-    opacity: 0;
-    transform:
-      translate3d(35px, -150px, 0)
-      rotate(35deg);
-  }
+#fate .stars circle {
+  fill: var(--pale);
 }
 
 .hero-content {
-  position: relative;
-  z-index: 2;
+  z-index: 1;
   text-align: center;
-  max-width: 950px;
+  max-width: 100%;
+  text-shadow: 0 2px 22px var(--night);
 }
 
 .eyebrow {
   color: var(--gold);
-  font-family: "DM Mono", monospace;
-  font-size: 12px;
   letter-spacing: 3px;
+  font-size: clamp(10px, 1.1vw, 13px);
   text-transform: uppercase;
 }
 
 h1 {
-  margin: 15px 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(84px, 16vw, 185px);
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: -.045em;
+  line-height: .95;
   color: var(--pink);
-  font-family: "Fraunces", Georgia, serif;
-  font-size: clamp(75px, 15vw, 175px);
-  font-weight: 600;
+  margin: 23px 0 0;
+  text-shadow: 0 0 38px #cd698833;
+  animation: arrive 1.3s both;
+}
+
+.signature {
+  font-family: 'Allura', cursive;
+  font-size: clamp(32px, 5vw, 55px);
+  color: var(--pale);
+  margin: 7px auto 0;
+  display: table;
+  position: relative;
+  white-space: nowrap;
+  max-width: 100%;
+  line-height: 1.3;
+}
+
+.signature .ink {
+  display: block;
+  clip-path: inset(0 100% 0 0);
+  animation: write 3.2s cubic-bezier(.35, 0, .2, 1) 1.25s forwards;
+}
+
+.signature .pen {
+  position: absolute;
+  top: 42%;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  background: var(--gold);
+  border-radius: 50%;
+  box-shadow: 0 0 9px 3px #b7ab4c9c;
+  opacity: 0;
+  animation: pen 3.2s cubic-bezier(.35, 0, .2, 1) 1.25s forwards;
+}
+
+.tagline {
+  font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  letter-spacing: -5px;
-  line-height: 1.2;
-
-  text-shadow:
-    0 3px 0 #a83e72,
-    0 0 35px #ffb4d080,
-    0 0 90px #ffb4d040;
+  font-size: clamp(23px, 3.4vw, 35px);
+  margin: 28px 0 0;
+  opacity: 0;
+  animation: fadein 1.3s 4.25s forwards;
 }
 
-.ornament {
-  color: var(--gold);
-  font-size: 24px;
-  letter-spacing: 16px;
-  margin: 12px 0 25px;
-}
-
-.description {
-  color: var(--cream);
-  font-family: "Fraunces", Georgia, serif;
-  font-size: clamp(23px, 4vw, 35px);
-  font-style: italic;
-  line-height: 1.5;
-  text-shadow: 0 2px 12px #12382c;
-}
-
-.scroll-hint {
+.scroll {
+  display: inline-block;
   margin-top: 75px;
-  color: var(--mint);
+  color: var(--gold);
+  text-decoration: none;
   font-size: 11px;
   letter-spacing: 3px;
-  animation: breathe 3s ease-in-out infinite;
-}
-
-@keyframes breathe {
-  50% {
-    opacity: .4;
-    transform: translateY(8px);
-  }
+  opacity: 0;
+  animation: fadein 1s 4.7s forwards;
 }
 
 section {
-  padding: 95px max(7%, 24px);
-  border-top: 1px solid #f5cf7525;
+  padding: clamp(70px, 10vw, 120px) clamp(24px, 9vw, 150px);
+  border-top: 1px solid #b7ab4c33;
 }
 
-.story {
-  background:
-    radial-gradient(
-      ellipse at top right,
-      #386c5040,
-      transparent 60%
-    ),
-    #153f34;
+section:nth-of-type(odd) {
+  background: #23291e;
 }
 
-.sheet {
-  background: #1c4b3b;
-}
-
-.section-label {
-  color: var(--gold);
-  font-family: "DM Mono", monospace;
-  font-size: 12px;
+.kicker {
+  font-size: 11px;
   letter-spacing: 3px;
+  color: var(--gold);
 }
 
 h2 {
-  margin: 15px 0 30px;
-  color: var(--light-pink);
-  font-family: "Fraunces", Georgia, serif;
-  font-size: clamp(42px, 7vw, 75px);
-  font-weight: 600;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(47px, 7vw, 78px);
   font-style: italic;
+  font-weight: 500;
+  color: var(--pink);
+  margin: 12px 0 25px;
 }
 
 section p {
-  color: #e1eee3;
-  max-width: 750px;
-  font-size: 18px;
-  line-height: 2;
+  max-width: 720px;
+  line-height: 1.95;
+  font-size: 16px;
+  color: var(--pale);
 }
 
-.fairy-line {
-  width: 110px;
-  height: 2px;
-  margin: 35px 0;
-  background: linear-gradient(
-    90deg,
-    var(--pink),
-    var(--gold),
-    transparent
-  );
-}
-
-.placeholder {
-  margin-top: 35px;
-  padding: 35px;
-  max-width: 750px;
-  border: 1px solid #f5cf7545;
-  border-radius: 14px;
-  background: #ffffff08;
-}
-
-.placeholder p {
-  margin-bottom: 0;
+.rule {
+  width: 100px;
+  height: 1px;
+  background: var(--gold);
+  margin: 28px 0;
 }
 
 footer {
-  padding: 35px 7%;
   text-align: center;
-  color: var(--mint);
-  background: #12372d;
-  font-size: 13px;
+  padding: 35px;
+  color: var(--gold);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
 }
 
-@media (max-width: 600px) {
-  header {
-    padding: 20px 5%;
+@keyframes arrive {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+    filter: blur(5px);
   }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+}
 
-  .logo {
-    font-size: 22px;
-  }
+@keyframes write {
+  to { clip-path: inset(0 0 0 0); }
+}
 
-  nav {
-    gap: 13px;
-  }
+@keyframes pen {
+  0% { opacity: 0; left: 0; }
+  3% { opacity: 1; }
+  97% { opacity: 1; }
+  100% { opacity: 0; left: 100%; }
+}
 
-  nav a {
-    font-size: 10px;
-    letter-spacing: 1px;
-  }
+@keyframes fadein {
+  to { opacity: 1; }
+}
 
-  h1 {
-    letter-spacing: -3px;
-  }
-
-  .ornament {
-    letter-spacing: 8px;
-  }
-
-  section {
-    padding: 75px 7%;
-  }
+@media (max-width: 540px) {
+  header { padding: 18px 20px; }
+  nav { gap: 12px; }
+  nav a { font-size: 10px; letter-spacing: 1px; }
+  .hero { min-height: calc(100svh - 68px); }
+  .eyebrow { letter-spacing: 2px; }
+  .scroll { margin-top: 65px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
+  *, *::before, *::after {
+    animation: none !important;
     scroll-behavior: auto !important;
   }
-
-  .symbol {
-    opacity: .55;
-  }
+  .signature .ink { clip-path: none; }
+  .signature .pen { display: none; }
+  .tagline, .scroll { opacity: 1; }
 }
 </style>
 </head>
@@ -360,8 +281,7 @@ footer {
 <body>
 
 <header>
-  <a class="logo" href="#">Áugure ✧</a>
-
+  <a class="brand" href="#inicio">Áugure</a>
   <nav>
     <a href="#historia">HISTÓRIA</a>
     <a href="#ficha">FICHA</a>
@@ -370,130 +290,257 @@ footer {
 
 <main>
 
-  <div class="hero">
-
-    <div class="magic" id="magic"></div>
+  <div class="hero" id="inicio">
+    <svg
+      id="fate"
+      viewBox="0 0 1200 800"
+      preserveAspectRatio="xMidYMid slice"
+      aria-hidden="true"
+    >
+      <g class="threads"></g>
+      <g class="stars"></g>
+      <g class="letters"></g>
+    </svg>
 
     <div class="hero-content">
-
-      <div class="eyebrow">
-        ✧ ACANTHUS · DESTINO · TEMPO ✧
-      </div>
+      <div class="eyebrow">ACANTHUS ✦ MYSTERIUM</div>
 
       <h1>Áugure</h1>
 
-      <div class="ornament">
-        ✦ ❀ ✧ ❀ ✦
+      <div class="signature">
+        <span class="ink">Hanna Virelli Rosebud</span>
+        <span class="pen" aria-hidden="true"></span>
       </div>
 
-      <div class="description">
-        Em busca da palavra perfeita.
-      </div>
+      <p class="tagline">Em busca da palavra perfeita.</p>
 
-      <div class="scroll-hint">
-        DESVENDAR ↓
-      </div>
-
+      <a class="scroll" href="#historia">DESVENDAR ↓</a>
     </div>
   </div>
 
-  <section class="story" id="historia">
-
-    <div class="section-label">
-      ✿ ERA UMA VEZ...
-    </div>
-
+  <section id="historia">
+    <div class="kicker">I · ERA UMA VEZ</div>
     <h2>Entre o Ontem e o Amanhã</h2>
-
-    <div class="fairy-line"></div>
+    <div class="rule"></div>
 
     <p>
       Algumas histórias são escritas com tinta.
       Outras, com os fios invisíveis do destino.
     </p>
 
-    <p>
-      A história de Áugure pertence àquelas
-      que ainda estão sendo contadas.
-    </p>
-
+    <p>A história de Áugure ainda está sendo contada.</p>
   </section>
 
-  <section class="sheet" id="ficha">
-
-    <div class="section-label">
-      ✧ MAGO: O DESPERTAR · 2ª EDIÇÃO
-    </div>
-
+  <section id="ficha">
+    <div class="kicker">II · MAGO: O DESPERTAR</div>
     <h2>O Grimório</h2>
+    <div class="rule"></div>
 
-    <div class="fairy-line"></div>
-
-    <div class="placeholder">
-      <div class="section-label">
-        ✿ OS SEGREDOS DE ÁUGURE
-      </div>
-
-      <p>
-        Em breve, os atributos, Arcanas,
-        magias, méritos e mistérios
-        da nossa pequena bruxa do destino.
-      </p>
-    </div>
-
+    <p>
+      Em breve: Arcanas, magias, méritos e os mistérios
+      de Hanna Virelli Rosebud.
+    </p>
   </section>
 
 </main>
 
-<footer>
-  ✧ Áugure · Em busca da palavra perfeita ✧
-</footer>
+<footer>Áugure · Em busca da palavra perfeita.</footer>
 
 <script>
-const magic = document.getElementById("magic");
+(() => {
+  const svg = document.getElementById('fate');
+  const threads = svg.querySelector('.threads');
+  const stars = svg.querySelector('.stars');
+  const letters = svg.querySelector('.letters');
 
-const symbols = [
-  "a", "æ", "é", "?", "!",
-  "✦", "✧", "✿", "❀",
-  "♡", "∞", "h", "Ω"
-];
+  const NS = 'http://www.w3.org/2000/svg';
+  const reduce = window.matchMedia(
+    '(prefers-reduced-motion: reduce)'
+  ).matches;
 
-const colors = [
-  "#ff65ad",
-  "#ffc2df",
-  "#f5cf75",
-  "#a7f2bc",
-  "#ffffff"
-];
+  const glyphs = 'abcdefghijklmnopqrstuvwxyzæœ';
 
-for (let i = 0; i < 65; i++) {
-  const symbol = document.createElement("span");
+  const paths = [];
+  const characters = [];
+  const dots = [];
 
-  symbol.className = "symbol";
+  const rand = (a, b) => a + Math.random() * (b - a);
 
-  symbol.textContent =
-    symbols[Math.floor(Math.random() * symbols.length)];
+  const make = (tag, parent) => {
+    const el = document.createElementNS(NS, tag);
+    parent.appendChild(el);
+    return el;
+  };
 
-  symbol.style.left =
-    Math.random() * 100 + "%";
+  // Cada fio tem um trajeto próprio,
+  // que ondula continuamente com o tempo.
+  for (let i = 0; i < 11; i++) {
+    const path = make('path', threads);
 
-  symbol.style.top =
-    Math.random() * 100 + "%";
+    path.setAttribute(
+      'stroke-width',
+      i % 3 === 0 ? '1.25' : '.7'
+    );
 
-  symbol.style.fontSize =
-    (14 + Math.random() * 28) + "px";
+    const baseY = 35 + i * 73 + rand(-18, 18);
 
-  symbol.style.color =
-    colors[Math.floor(Math.random() * colors.length)];
+    const config = {
+      path,
+      baseY,
+      phase: rand(0, 6.28),
+      amplitude: rand(13, 35),
+      speed: rand(.00012, .0003)
+    };
 
-  symbol.style.animationDuration =
-    (9 + Math.random() * 12) + "s";
+    paths.push(config);
 
-  symbol.style.animationDelay =
-    (-Math.random() * 20) + "s";
+    const count = i % 2 === 0 ? 5 : 4;
 
-  magic.appendChild(symbol);
-}
+    // Letras pequenas vinculadas a cada fio.
+    for (let j = 0; j < count; j++) {
+      const text = make('text', letters);
+
+      text.textContent = glyphs[
+        Math.floor(rand(0, glyphs.length))
+      ];
+
+      text.setAttribute(
+        'font-family',
+        'Cormorant Garamond, Georgia, serif'
+      );
+
+      text.setAttribute(
+        'font-size',
+        rand(8, 12).toFixed(1)
+      );
+
+      text.setAttribute(
+        'fill',
+        j % 3 === 0 ? '#E7D5D5' : '#B7AB4C'
+      );
+
+      text.setAttribute('text-anchor', 'middle');
+
+      characters.push({
+        text,
+        pathIndex: i,
+        progress: Math.random(),
+        speed: rand(.000009, .000025) * (j % 2 ? -1 : 1),
+        nextChange: 0
+      });
+    }
+  }
+
+  // Pequenos pontos luminosos cósmicos.
+  for (let i = 0; i < 48; i++) {
+    const circle = make('circle', stars);
+
+    const x = rand(0, 1200);
+    const y = rand(0, 800);
+
+    circle.setAttribute('cx', x);
+    circle.setAttribute('cy', y);
+    circle.setAttribute('r', rand(.4, 1.3));
+
+    dots.push({
+      circle,
+      phase: rand(0, 6.28),
+      alpha: rand(.1, .45)
+    });
+  }
+
+  function draw(t) {
+
+    // Atualiza o formato de cada fio dourado.
+    paths.forEach((p, i) => {
+      const points = [];
+
+      for (let x = -60; x <= 1260; x += 35) {
+        const y =
+          p.baseY +
+          Math.sin(x * .005 + t * p.speed + p.phase)
+          * p.amplitude +
+          Math.sin(x * .011 - t * p.speed * .65 + i)
+          * 12;
+
+        points.push(
+          (x === -60 ? 'M' : 'L') +
+          x.toFixed(1) + ' ' + y.toFixed(1)
+        );
+      }
+
+      p.path.setAttribute('d', points.join(' '));
+
+      p.path.setAttribute(
+        'opacity',
+        (
+          .2 +
+          (Math.sin(t * .0003 + i) * .5 + .5) * .28
+        ).toFixed(2)
+      );
+    });
+
+    // As letras percorrem os próprios fios,
+    // acompanhando suas curvas e ondulações.
+    characters.forEach(c => {
+      const p = paths[c.pathIndex].path;
+      const len = p.getTotalLength();
+
+      c.progress = (c.progress + c.speed * 16 + 1) % 1;
+
+      const pos = p.getPointAtLength(c.progress * len);
+
+      c.text.setAttribute('x', pos.x);
+      c.text.setAttribute('y', pos.y - 3);
+
+      c.text.setAttribute(
+        'opacity',
+        Math.min(
+          .85,
+          .18 + Math.sin(Math.PI * c.progress) * .7
+        ).toFixed(2)
+      );
+
+      // Cada letra muda de caractere
+      // em intervalos independentes.
+      if (t >= c.nextChange) {
+        c.text.textContent = glyphs[
+          Math.floor(rand(0, glyphs.length))
+        ];
+
+        c.nextChange = t + rand(600, 2200);
+      }
+    });
+
+    // Luzes cósmicas discretas.
+    dots.forEach(d => {
+      d.circle.setAttribute(
+        'opacity',
+        (
+          d.alpha *
+          (.65 + .35 * Math.sin(t * .001 + d.phase))
+        ).toFixed(2)
+      );
+    });
+  }
+
+  let last = 0;
+
+  function frame(t) {
+    if (t - last >= 32) {
+      draw(t);
+      last = t;
+    }
+
+    requestAnimationFrame(frame);
+  }
+
+  draw(0);
+
+  if (!reduce) {
+    requestAnimationFrame(frame);
+  }
+})();
 </script>
 
 </body>
