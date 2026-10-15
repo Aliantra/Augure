@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Augure | Hanna</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,500&family=DM+Sans:wght@400;500&display=swap');
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #0d1714;
+  color: #f4e9dd;
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+header {
+  position: relative;
+  z-index: 2;
+  padding: 25px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ffffff20;
+}
+
+.logo {
+  color: #e1b969;
+  font-size: 22px;
+  letter-spacing: 3px;
+}
+
+nav a {
+  color: #f4e9dd;
+  text-decoration: none;
+  margin-left: 18px;
+  font-size: 12px;
+}
+
+.hero {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(90px, 17vw, 170px);
+  color: #ef9fbd;
+  margin: 0;
+}
+
+.subtitle {
+  color: #e1b969;
+  letter-spacing: 4px;
+  font-size: 12px;
+}
+
+.description {
+  color: #a5cdb5;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 26px;
+  margin-top: 30px;
+}
+
+.magic {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.letter {
+  position: absolute;
+  font-family: 'Cormorant Garamond', serif;
+  color: #e1b969;
+  opacity: 0;
+  animation: float 12s infinite ease-in-out;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(60px) rotate(-15deg);
+    opacity: 0;
+  }
+  30% { opacity: .65; }
+  70% { opacity: .5; }
+  100% {
+    transform: translateY(-120px) rotate(20deg);
+    opacity: 0;
+  }
+}
+
+section {
+  padding: 80px 8%;
+  border-top: 1px solid #ffffff15;
+}
+
+h2 {
+  font-family: 'Cormorant Garamond', serif;
+  color: #ef9fbd;
+  font-size: 48px;
+  font-weight: 400;
+}
+
+section p {
+  line-height: 1.9;
+  color: #c5c9bd;
+  max-width: 700px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .letter { animation: none; opacity: .35; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">AUGURE</div>
+  <nav>
+    <a href="#historia">HISTÓRIA</a>
+    <a href="#ficha">FICHA</a>
+  </nav>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="magic" id="magic"></div>
+
+    <div class="content">
+      <div class="subtitle">
+        ACANTHUS · DESTINO · TEMPO
+      </div>
+
+      <h1>Hanna</h1>
+
+      <div class="description">
+        Há palavras que o destino ainda não escreveu.
+      </div>
+    </div>
+  </div>
+
+  <section id="historia">
+    <h2>Entre o Ontem e o Amanhã</h2>
+    <p>
+      Algumas histórias não começam com uma escolha.
+      Começam com uma palavra ainda não pronunciada.
+    </p>
+  </section>
+
+  <section id="ficha">
+    <h2>O Grimório</h2>
+    <p>
+      Em breve, a ficha e os segredos de Hanna.
+    </p>
+  </section>
+</main>
+
+<script>
+const magic = document.getElementById('magic');
+const symbols = ['a','æ','✦','?','∞','é','✧','h','Ω'];
+
+for (let i = 0; i < 32; i++) {
+  const letter = document.createElement('span');
+  letter.className = 'letter';
+  letter.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+
+  letter.style.left = Math.random() * 100 + '%';
+  letter.style.top = Math.random() * 100 + '%';
+  letter.style.fontSize = (15 + Math.random() * 30) + 'px';
+  letter.style.animationDelay = (-Math.random() * 12) + 's';
+  letter.style.animationDuration = (9 + Math.random() * 9) + 's';
+
+  magic.appendChild(letter);
+}
+</script>
+
+</body>
+</html>
+
