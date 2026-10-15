@@ -1,69 +1,95 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#190d20"><meta name="description" content="Áugure — Hanna Virelli R.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#210b1b">
+<meta name="description" content="Áugure — Hanna Virelli R. Em busca da palavra perfeita.">
 <title>Áugure — Hanna Virelli R.</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
 <style>
-:root{--night:#190d20;--pink:#bc5d94;--rose:#eb5187;--gold:#f5c979;--sage:#c4c388;--cream:#d8d4b1}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--night);color:var(--cream);font-family:'Cormorant Garamond',Georgia,serif}a{color:inherit}header{position:absolute;z-index:10;top:0;left:0;width:100%;padding:24px clamp(22px,5vw,76px);display:flex;align-items:center;justify-content:space-between;gap:15px}header .brand{font-size:24px;font-style:italic;text-decoration:none;color:#f2d9e7}nav{display:flex;gap:25px}nav a{text-decoration:none;letter-spacing:.19em;font-size:13px;color:#e7d3ce}nav a:hover{color:var(--gold)}
-.hero{height:min(940px,100svh);min-height:620px;position:relative;isolation:isolate;overflow:hidden;display:grid;place-items:center;background:radial-gradient(ellipse 55% 55% at 49% 50%,#401a38 0%,#2a102c 38%,transparent 77%),radial-gradient(ellipse 45% 30% at 7% 34%,#5b2744a8,transparent 90%),radial-gradient(ellipse 45% 30% at 96% 75%,#51213da0,transparent 90%),#190d20}
-.hero::before{content:"";position:absolute;inset:-15%;z-index:-2;opacity:.62;filter:blur(35px);background:radial-gradient(ellipse 13% 25% at 17% 32%,#a33f6c55,transparent),radial-gradient(ellipse 17% 11% at 84% 34%,#a23c7050,transparent),radial-gradient(ellipse 17% 19% at 75% 86%,#b44b7540,transparent),radial-gradient(ellipse 21% 12% at 10% 88%,#c0688255,transparent);animation:mist 18s ease-in-out infinite alternate}
-.hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse 50% 48% at 50% 50%,#170b1c70 0%,#170b1c24 56%,transparent 80%)}
-@keyframes mist{to{transform:translate(2%,-2%) scale(1.07)}}
-#sky{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:-1;overflow:visible}
-.hero-copy{position:relative;z-index:2;text-align:center;padding:45px 15px 10px;width:100%;text-shadow:0 2px 16px #16091e;transform:translateY(12px)}.ornament{color:var(--gold);font-size:29px;line-height:1;margin-bottom:38px;filter:drop-shadow(0 0 7px #e9a55290)}.eyebrow{font-size:clamp(13px,1.5vw,20px);letter-spacing:.38em;color:#ebd2a1;white-space:nowrap}.eyebrow span{color:var(--gold);margin:0 .35em}h1{font-size:clamp(102px,19vw,245px);font-weight:500;font-style:italic;letter-spacing:-.075em;line-height:.82;margin:22px 0 26px;padding-right:.08em;color:#ce719c;text-shadow:0 2px 1px #f3b2bb44,0 0 35px #d45b9a2b,0 0 90px #b72d7b24;animation:appear 1.7s both}.signature{font-size:clamp(38px,5.3vw,71px);font-style:italic;color:#d6d5af;line-height:1.15;width:max-content;max-width:95%;margin:0 auto;position:relative}.signature span{display:block;clip-path:inset(0 100% 0 0);animation:write 3.2s ease-in-out 1.4s forwards}.signature i{position:absolute;left:0;top:53%;width:4px;height:4px;border-radius:50%;background:#ffe1a0;box-shadow:0 0 12px 5px #f9bc67a6;opacity:0;animation:pen 3.2s ease-in-out 1.4s forwards}.small-star{margin:22px 0 18px;font-size:28px;color:var(--gold);filter:drop-shadow(0 0 6px #f9c676)}.tagline{font-size:clamp(27px,3.2vw,44px);font-style:italic;margin:0;color:#d3cfaa;opacity:0;animation:fade 1.2s 4.2s forwards}.down{display:inline-block;margin-top:55px;color:var(--gold);font-size:30px;text-decoration:none;opacity:0;animation:fade 1s 4.8s forwards}
-@keyframes appear{from{opacity:0;filter:blur(9px);transform:translateY(16px)}to{opacity:1;filter:blur(0);transform:translateY(0)}}@keyframes write{to{clip-path:inset(0 0 0 0)}}@keyframes pen{0%{opacity:0;left:0}3%{opacity:1}97%{opacity:1}100%{opacity:0;left:100%}}@keyframes fade{to{opacity:1}}
-section{padding:100px clamp(24px,11vw,170px);border-top:1px solid #c79a6e32;background:linear-gradient(135deg,#201127,#1a0e21)}section:nth-of-type(2){background:#24152a}.kicker{font-size:14px;letter-spacing:.25em;color:var(--gold)}h2{font-size:clamp(54px,7vw,92px);font-style:italic;font-weight:500;color:#ce719c;margin:12px 0 25px}section p{font-size:clamp(23px,2.2vw,29px);line-height:1.6;max-width:760px}footer{text-align:center;padding:35px;color:var(--sage);font-size:21px}
-@media(max-width:650px){header{padding:18px 20px}header .brand{font-size:21px}nav{gap:15px}nav a{font-size:11px}.hero{min-height:600px;height:100svh}.hero-copy{transform:translateY(8px)}.ornament{margin-bottom:28px}.eyebrow{font-size:11px;letter-spacing:.21em}h1{font-size:clamp(89px,23vw,145px);margin:28px 0 21px}.signature{font-size:clamp(35px,9vw,55px)}.tagline{font-size:26px}.down{margin-top:40px}section{padding:75px 25px}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important}.signature span{clip-path:none}.signature i{display:none}.tagline,.down{opacity:1}}
+:root{--night:#210b1b;--plum:#391426;--rose:#d77b9c;--gold:#f5c16f;--ivory:#d5d4ae}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--night);color:var(--ivory);font-family:'Cormorant Garamond',Georgia,serif;overflow-x:hidden}
+.topbar{position:absolute;z-index:10;inset:0 0 auto;display:flex;justify-content:space-between;align-items:center;padding:19px clamp(20px,4vw,66px);gap:16px;background:linear-gradient(#160914a8,transparent)}
+.logo{font-size:clamp(24px,3vw,32px);font-style:italic;color:#f0a6b6;text-decoration:none}.nav{display:flex;gap:clamp(14px,3vw,32px)}.nav a{color:#e8d7ce;text-decoration:none;letter-spacing:.22em;font-size:clamp(12px,1.4vw,17px)}.nav a:hover{color:var(--gold)}
+.hero{min-height:100svh;min-height:100dvh;position:relative;isolation:isolate;display:grid;place-items:center;overflow:hidden;background:radial-gradient(ellipse 65% 75% at 50% 50%,#310f26 0%,#260c20 48%,#160914 100%)}
+.hero::before{content:"";position:absolute;inset:-15%;z-index:-3;pointer-events:none;background:radial-gradient(ellipse 30% 27% at 8% 22%,#8b315335,transparent 85%),radial-gradient(ellipse 28% 28% at 95% 77%,#9d37502c,transparent 88%),radial-gradient(ellipse 25% 28% at 5% 85%,#b0524d24,transparent 90%),radial-gradient(ellipse 30% 22% at 90% 13%,#a542602c,transparent 90%);filter:blur(28px)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse 43% 43% at 50% 51%,#1c0919db 0%,#1d0919a8 52%,transparent 100%)}
+#fate{position:absolute;inset:0;width:100%;height:100%;z-index:-2;pointer-events:none;display:block}
+.hero-inner{text-align:center;position:relative;z-index:2;width:min(95%,1000px);padding:115px 10px 100px;display:flex;flex-direction:column;align-items:center}
+.ornament{color:#f4d18a;font-size:clamp(23px,3.4vw,38px);text-shadow:0 0 12px #ffcc75a6;line-height:1;opacity:.85}.ornament.top{margin-bottom:clamp(30px,5vh,55px)}.eyebrow{font-size:clamp(12px,1.6vw,21px);letter-spacing:clamp(.13em,.55vw,.32em);font-weight:500;color:#e4d7a8;text-shadow:0 0 12px #e4c27d55;white-space:nowrap}
+h1{margin:18px 0 0;font-size:clamp(90px,15vw,210px);line-height:.9;letter-spacing:-.045em;font-weight:500;font-style:italic;background:linear-gradient(125deg,#f3a8b7 4%,#ce6c96 26%,#f1a4ae 46%,#be658e 66%,#e99ba5 89%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 1px #5b193b) drop-shadow(0 0 17px #b94c744a);animation:appear 1.5s ease both}
+.signature{position:relative;display:inline-block;max-width:100%;font-size:clamp(35px,5vw,66px);font-style:italic;line-height:1.15;margin-top:16px;color:#d5d4ae;text-shadow:0 0 10px #eee2b02b;white-space:nowrap}
+.signature span{display:block;clip-path:inset(0 100% 0 0);animation:writing 3s 1.2s cubic-bezier(.3,0,.22,1) forwards}
+.signature::after{content:"";position:absolute;width:4px;height:4px;border-radius:50%;background:#ffdc98;box-shadow:0 0 11px 4px #f5c16f8c;left:0;top:55%;opacity:0;animation:quill 3s 1.2s cubic-bezier(.3,0,.22,1) forwards}
+.ornament.mid{margin-top:clamp(24px,4vh,45px)}.tagline{font-size:clamp(24px,3.2vw,43px);font-style:italic;margin:clamp(22px,4vh,42px) 0 0;color:#d5d4ae;opacity:0;animation:fade 1.2s 4s forwards;text-shadow:0 0 16px #e6ca8a30}
+.scroll{margin-top:clamp(36px,6vh,70px);text-decoration:none;color:#f5c16f;font-size:28px;opacity:0;animation:fade 1s 4.5s forwards}
+.content{padding:clamp(75px,10vw,125px) clamp(25px,10vw,160px);background:#210b1b;border-top:1px solid #f5c16f30}.content:nth-of-type(odd){background:#291022}.section-kicker{letter-spacing:.25em;color:var(--gold);font-size:15px}.content h2{font-weight:500;font-style:italic;color:var(--rose);font-size:clamp(50px,7vw,85px);margin:12px 0 25px}.content p{max-width:720px;font-size:clamp(21px,2vw,26px);line-height:1.55}footer{text-align:center;padding:32px;font-size:20px;color:#c8ae81}
+@keyframes appear{from{opacity:0;transform:translateY(12px);filter:blur(5px)}to{opacity:1;transform:none;filter:blur(0) drop-shadow(0 0 17px #b94c744a)}}
+@keyframes writing{to{clip-path:inset(0 0 0 0)}}@keyframes quill{0%{opacity:0;left:0}5%{opacity:1}95%{opacity:1}100%{left:100%;opacity:0}}@keyframes fade{to{opacity:1}}
+@media(max-width:600px){.hero-inner{padding:120px 5px 95px}.ornament.top{margin-bottom:38px}.eyebrow{font-size:clamp(12px,3vw,16px);letter-spacing:.16em}h1{font-size:clamp(86px,20vw,135px);margin-top:28px}.signature{font-size:clamp(34px,8.5vw,49px);margin-top:17px}.ornament.mid{margin-top:30px}.tagline{font-size:clamp(25px,6.3vw,34px);margin-top:28px}.nav a{letter-spacing:.14em}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important}.signature span{clip-path:none}.signature::after{display:none}.tagline,.scroll{opacity:1}}
 </style>
 </head>
 <body>
-<header><a class="brand" href="#inicio">Áugure</a><nav><a href="#historia">HISTÓRIA</a><a href="#ficha">FICHA</a></nav></header>
-<main><div class="hero" id="inicio">
-<svg id="sky" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="4"/></filter><filter id="soft" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="1.7"/></filter></defs><g id="dust"></g><g id="thread-glow" filter="url(#glow)"></g><g id="threads"></g><g id="letters"></g><g id="sparks"></g></svg>
-<div class="hero-copy"><div class="ornament">✧</div><div class="eyebrow">ACANTHUS <span>✧</span> MYSTERIUM</div><h1>Áugure</h1><div class="signature"><span>Hanna Virelli R.</span><i aria-hidden="true"></i></div><div class="small-star">✧</div><p class="tagline">Em busca da palavra perfeita.</p><a class="down" href="#historia" aria-label="Descer para a história">⌄</a></div>
-</div>
-<section id="historia"><div class="kicker">I · ERA UMA VEZ</div><h2>Entre o Ontem e o Amanhã</h2><p>Algumas histórias são escritas com tinta. Outras, com os fios invisíveis do destino.</p><p>A história de Áugure ainda está sendo contada.</p></section>
-<section id="ficha"><div class="kicker">II · MAGO: O DESPERTAR</div><h2>O Grimório</h2><p>Em breve: Arcanas, magias, méritos e os mistérios de Hanna Virelli R.</p></section></main><footer>Áugure · Em busca da palavra perfeita.</footer>
+<header class="topbar"><a class="logo" href="#inicio">Áugure</a><nav class="nav"><a href="#historia">HISTÓRIA</a><a href="#ficha">FICHA</a></nav></header>
+<main>
+<section class="hero" id="inicio" aria-label="Áugure — Hanna Virelli R.">
+<canvas id="fate" aria-hidden="true"></canvas>
+<div class="hero-inner"><div class="ornament top" aria-hidden="true">✧</div><div class="eyebrow">ACANTHUS ✧ MYSTERIUM</div><h1>Áugure</h1><div class="signature"><span>Hanna Virelli R.</span></div><div class="ornament mid" aria-hidden="true">✧</div><p class="tagline">Em busca da palavra perfeita.</p><a class="scroll" href="#historia" aria-label="Ir para a história">⌄</a></div>
+</section>
+<section class="content" id="historia"><div class="section-kicker">I · ERA UMA VEZ</div><h2>Entre o Ontem e o Amanhã</h2><p>Algumas histórias são escritas com tinta. Outras, com os fios invisíveis do destino.</p><p>A história de Áugure ainda está sendo contada.</p></section>
+<section class="content" id="ficha"><div class="section-kicker">II · MAGO: O DESPERTAR</div><h2>O Grimório</h2><p>Em breve: Arcanas, magias, méritos e os mistérios de Hanna Virelli R.</p></section>
+</main><footer>Áugure · Em busca da palavra perfeita.</footer>
 <script>
 (()=>{
-const svg=document.getElementById('sky'),NS='http://www.w3.org/2000/svg';
-const dust=document.getElementById('dust'),glow=document.getElementById('thread-glow'),threads=document.getElementById('threads'),letters=document.getElementById('letters'),sparks=document.getElementById('sparks');
+'use strict';
+const canvas=document.getElementById('fate');const ctx=canvas.getContext('2d',{alpha:true});if(!ctx)return;
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const R=(a,b)=>a+Math.random()*(b-a),pick=s=>s[Math.floor(Math.random()*s.length)];
-const el=(tag,parent,attrs={})=>{const e=document.createElementNS(NS,tag);for(const [k,v] of Object.entries(attrs))e.setAttribute(k,v);parent.appendChild(e);return e};
-// Each strand follows a different diagonal, sweeping curve. No horizontal grid.
+let W=0,H=0,DPR=1,paths=[],motes=[],stars=[],last=0,elapsed=0,frame=0;
+const rand=(a,b)=>a+Math.random()*(b-a);
+const glyphs='aaeeiinnorrsstuæœλϵα';
+// Feixes organizados nas bordas: nenhum fio atravessa o centro do título.
+// Coordenadas normalizadas, com várias curvas irmãs por feixe.
 const routes=[
-{p:[[-180,60],[110,0],[205,385],[525,315],[790,245],[1110,430],[1600,50]],a:18,s:.00018},
-{p:[[-180,220],[170,100],[340,560],[620,490],[900,370],[1220,155],[1620,360]],a:24,s:.00014},
-{p:[[-200,480],[100,300],[320,600],[650,180],[1020,190],[1240,550],[1640,490]],a:21,s:.00016},
-{p:[[-190,700],[170,520],[380,850],[740,650],[1040,490],[1320,720],[1640,620]],a:19,s:.00012},
-{p:[[-200,850],[120,620],[390,930],[720,780],[1060,880],[1300,590],[1640,760]],a:25,s:.00015},
-{p:[[-100,-140],[200,100],[100,330],[460,440],[720,110],[1060,320],[1490,160]],a:14,s:.0002},
-{p:[[-140,340],[240,400],[430,100],[760,410],[1000,650],[1200,230],[1610,300]],a:19,s:.00013},
-{p:[[-160,960],[250,770],[540,620],[770,940],[1030,700],[1230,410],[1570,620]],a:16,s:.00017},
-{p:[[60,-140],[340,200],[180,560],[540,760],[890,610],[1180,940],[1520,700]],a:15,s:.00014},
-{p:[[1370,-150],[1190,210],[1490,430],[1070,570],[890,800],[560,960],[280,1040]],a:20,s:.00011},
-{p:[[-160,170],[280,250],[520,20],[810,280],[1100,120],[1420,420],[1640,160]],a:13,s:.00015},
-{p:[[-140,610],[180,770],[510,510],[820,710],[1140,460],[1440,840],[1620,720]],a:14,s:.00016}
+ [[-.14,.10],[.11,-.10],[.28,.18],[.47,.13]],
+ [[-.12,.25],[.10,.42],[.19,.04],[.43,.15]],
+ [[.53,-.12],[.72,.24],[.88,.01],[1.14,.18]],
+ [[.70,.06],[.90,.34],[1.03,.09],[1.15,.30]],
+ [[-.13,.43],[.08,.55],[.22,.43],[.37,.35]],
+ [[.65,.37],[.83,.22],[.92,.54],[1.14,.42]],
+ [[-.14,.71],[.12,.55],[.19,.83],[.45,.91]],
+ [[-.13,.88],[.13,.76],[.20,1.05],[.51,1.13]],
+ [[.53,.93],[.79,.71],[.91,1.00],[1.14,.82]],
+ [[.62,1.12],[.79,.82],[.94,.70],[1.13,.68]],
+ [[-.08,1.09],[.19,.88],[.32,1.16],[.57,1.12]],
+ [[.48,-.13],[.59,.08],[.86,.15],[1.10,-.06]]
 ];
-// Smooth Catmull-Rom curves converted to cubic Béziers.
-function curve(points){let d=`M ${points[0][0].toFixed(1)} ${points[0][1].toFixed(1)}`;for(let i=0;i<points.length-1;i++){const p0=points[Math.max(0,i-1)],p1=points[i],p2=points[i+1],p3=points[Math.min(points.length-1,i+2)];const c1=[p1[0]+(p2[0]-p0[0])/6,p1[1]+(p2[1]-p0[1])/6],c2=[p2[0]-(p3[0]-p1[0])/6,p2[1]-(p3[1]-p1[1])/6];d+=` C ${c1[0].toFixed(1)} ${c1[1].toFixed(1)} ${c2[0].toFixed(1)} ${c2[1].toFixed(1)} ${p2[0].toFixed(1)} ${p2[1].toFixed(1)}`}return d}
-const lines=routes.map((r,i)=>({ ...r,phase:R(0,7),line:el('path',threads,{fill:'none',stroke:i%3===0?'#ffe0a0':'#f1b76e','stroke-width':i%4===0?'1.45':'.85',opacity:'.68'}),halo:el('path',glow,{fill:'none',stroke:'#ffa950','stroke-width':i%3===0?'5':'3',opacity:'.37'})}));
-// Tiny glowing dust, concentrated near the sides to keep the lettering readable.
-for(let i=0;i<310;i++){let x=R(-20,1460),y=R(-20,920);const center=Math.abs(x-720)<370&&Math.abs(y-450)<250;if(center&&Math.random()<.82)continue;el('circle',dust,{cx:x.toFixed(1),cy:y.toFixed(1),r:R(.25,1.15).toFixed(2),fill:Math.random()<.7?'#f6c580':'#cf77a6',opacity:R(.08,.57).toFixed(2)})}
-const glyphs='aaeeiilmnorstuvæœαεηλ';const chars=[];
-for(let i=0;i<lines.length;i++)for(let j=0;j<19;j++){const t=el('text',letters,{'font-family':'Cormorant Garamond,Georgia,serif','font-style':'italic','font-size':R(12,22).toFixed(1),'text-anchor':'middle',fill:Math.random()<.2?'#fff0b9':'#ffd18b',opacity:'.85'});t.textContent=pick(glyphs);chars.push({node:t,index:i,at:Math.random(),speed:R(.000003,.000012)*(Math.random()<.28?-1:1),offset:R(-14,14),next:R(300,1800),phase:R(0,7)})}
-const glints=[];for(let i=0;i<35;i++){const e=el('circle',sparks,{r:R(1,2.5).toFixed(1),fill:'#ffe3a6'});glints.push({e,index:Math.floor(R(0,lines.length)),at:Math.random(),phase:R(0,7)})}
-function draw(t,dt){for(const r of lines){const p=r.p.map(([x,y],j)=>[x+Math.sin(t*r.s+r.phase+j*.9)*r.a,y+Math.cos(t*r.s*.8+r.phase+j*1.15)*r.a]);const d=curve(p);r.line.setAttribute('d',d);r.halo.setAttribute('d',d)}
-for(const c of chars){const path=lines[c.index].line,len=path.getTotalLength();c.at=(c.at+c.speed*dt+1)%1;const dist=c.at*len,p=path.getPointAtLength(dist),q=path.getPointAtLength(Math.min(len,dist+1));const dx=q.x-p.x,dy=q.y-p.y,n=Math.hypot(dx,dy)||1;const wobble=c.offset+Math.sin(t*.0008+c.phase)*2;c.node.setAttribute('x',(p.x-dy/n*wobble).toFixed(1));c.node.setAttribute('y',(p.y+dx/n*wobble).toFixed(1));c.node.setAttribute('opacity',(.35+.5*Math.sin(Math.PI*c.at)).toFixed(2));if(t>c.next){c.node.textContent=pick(glyphs);c.next=t+R(650,2300)}}
-for(const g of glints){const path=lines[g.index].line,p=path.getPointAtLength(g.at*path.getTotalLength());g.e.setAttribute('cx',p.x);g.e.setAttribute('cy',p.y);g.e.setAttribute('opacity',(.25+.7*(.5+.5*Math.sin(t*.002+g.phase))).toFixed(2))}}
-let last=0;function frame(t){if(t-last>33){draw(t,Math.min(t-last,50));last=t}requestAnimationFrame(frame)}draw(0,0);if(!reduced)requestAnimationFrame(frame);
+function bez(p,t){const u=1-t;return {x:u*u*u*p[0][0]+3*u*u*t*p[1][0]+3*u*t*t*p[2][0]+t*t*t*p[3][0],y:u*u*u*p[0][1]+3*u*u*t*p[1][1]+3*u*t*t*p[2][1]+t*t*t*p[3][1]}}
+function setup(){const r=canvas.getBoundingClientRect();W=r.width;H=r.height;DPR=Math.min(devicePixelRatio||1,1.6);canvas.width=Math.round(W*DPR);canvas.height=Math.round(H*DPR);ctx.setTransform(DPR,0,0,DPR,0,0);paths=[];motes=[];stars=[];
+ const mobile=W<650;const n=mobile?3:5;
+ routes.forEach((base,i)=>{for(let k=0;k<n;k++){let off=(k-(n-1)/2)*(mobile?.009:.007);const pts=base.map((q,j)=>[q[0]+off*(j%2?1:-1),q[1]+off]);const path={pts,phase:rand(0,6.28),speed:rand(.12,.23),amp:rand(.002,.006),width:rand(.35,1.05),alpha:rand(.2,.6),i};paths.push(path);
+ const count=mobile?5:7;for(let j=0;j<count;j++)motes.push({path,at:Math.random(),velocity:rand(.007,.018)*(Math.random()<.5?-1:1),glyph:glyphs[Math.floor(rand(0,glyphs.length))],change:rand(0,3),size:rand(mobile?8:9,mobile?13:16),offset:rand(-8,8),alpha:rand(.4,.95)});
+ }});
+ for(let i=0;i<(mobile?90:170);i++)stars.push({x:rand(0,W),y:rand(0,H),r:rand(.3,1.3),a:rand(.07,.5),phase:rand(0,6.28)});
+}
+function point(path,t,time){const p=path.pts.map(([x,y],j)=>[x*W+Math.sin(time*path.speed+path.phase+j*1.9)*path.amp*W,y*H+Math.cos(time*path.speed*.8+path.phase+j*1.4)*path.amp*H]);return bez(p,t)}
+// Atenua elementos perto das palavras, sem criar retângulo nem corte brusco.
+function visibility(x,y){const nx=(x-W*.5)/(W*(W<650?.42:.31));const ny=(y-H*.52)/(H*(W<650?.30:.30));const d=nx*nx+ny*ny;return .04+.96*Math.min(1,Math.max(0,(d-.70)/.95))}
+function render(t){ctx.clearRect(0,0,W,H);ctx.save();
+ // Estrelas sutis, sem animações piscantes agressivas.
+ for(const s of stars){const a=s.a*(.78+.22*Math.sin(t*.55+s.phase));ctx.fillStyle=`rgba(255,213,157,${a})`;ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fill()}
+ // Traços por segmentos permitem transparência orgânica na área central.
+ for(const p of paths){let prev=point(p,0,t);for(let j=1;j<=65;j++){const q=point(p,j/65,t);const a=p.alpha*visibility((q.x+prev.x)/2,(q.y+prev.y)/2);ctx.lineWidth=p.width;ctx.strokeStyle=`rgba(255,199,115,${a})`;ctx.shadowBlur=p.width>.75?7:3;ctx.shadowColor='#ffae63';ctx.beginPath();ctx.moveTo(prev.x,prev.y);ctx.lineTo(q.x,q.y);ctx.stroke();prev=q}}
+ ctx.shadowBlur=0;ctx.textAlign='center';ctx.textBaseline='middle';ctx.font="italic 13px 'Cormorant Garamond', Georgia, serif";
+ for(const m of motes){m.at=(m.at+m.velocity*Math.min(1/30,frame))%1;if(m.at<0)m.at+=1;m.change-=frame;if(m.change<=0){m.glyph=glyphs[Math.floor(rand(0,glyphs.length))];m.change=rand(.8,2.6)}const q=point(m.path,m.at,t);const next=point(m.path,Math.min(.999,m.at+.003),t);const dx=next.x-q.x,dy=next.y-q.y,len=Math.hypot(dx,dy)||1;const x=q.x-dy/len*m.offset,y=q.y+dx/len*m.offset;const a=m.alpha*visibility(x,y);if(a<.02)continue;ctx.font=`italic ${m.size}px 'Cormorant Garamond', Georgia, serif`;ctx.fillStyle=`rgba(255,211,142,${a})`;ctx.shadowBlur=5;ctx.shadowColor='#ffbc68';ctx.fillText(m.glyph,x,y)}ctx.restore()}
+function loop(ms){const dt=last?Math.min((ms-last)/1000,.05):1/60;last=ms;elapsed+=dt;frame=dt;render(elapsed);requestAnimationFrame(loop)}
+let resizeTimer;addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{setup();render(elapsed)},120)},{passive:true});
+setup();if(reduced){frame=0;render(0)}else requestAnimationFrame(loop);
 })();
 </script>
-</body></html>
+</body>
+</html>
 
