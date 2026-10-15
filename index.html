@@ -2,195 +2,159 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#210b1b">
 <meta name="description" content="Áugure — Em busca da palavra perfeita.">
-<title>Áugure</title>
+<title>Áugure — Em busca da palavra perfeita</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
 <style>
-:root{--night:#210b1b;--gold:#f5c16f;--cream:#d5d4ae;--pink:#d77b9c}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--night);color:var(--cream);font-family:'Cormorant Garamond',Georgia,serif;overflow-x:hidden}
-.site-header{position:absolute;top:0;left:0;right:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:20px clamp(20px,5vw,76px);gap:12px}
-.site-header a{color:#e6d5ca;text-decoration:none;text-shadow:0 1px 12px #210b1b;font-size:clamp(19px,2.2vw,28px)}
-.site-header nav{display:flex;gap:clamp(14px,3vw,32px)}
-.site-header nav a{font-size:clamp(11px,1.3vw,15px);letter-spacing:.21em}
-.hero{position:relative;isolation:isolate;min-height:100svh;display:flex;justify-content:center;align-items:center;overflow:hidden;background:#210b1b}
-/* Nebulosas de luz: manchas irregulares, não círculos decorativos */
-.hero::before{content:"";position:absolute;inset:-16%;z-index:-3;pointer-events:none;background:
-radial-gradient(ellipse 26% 24% at 10% 17%,#9b435350,transparent 90%),
-radial-gradient(ellipse 28% 24% at 91% 32%,#bd51704c,transparent 92%),
-radial-gradient(ellipse 30% 23% at 13% 81%,#a74a5a4a,transparent 92%),
-radial-gradient(ellipse 30% 28% at 92% 89%,#b648674a,transparent 92%),
-radial-gradient(ellipse 33% 28% at 52% 51%,#44152855,transparent 95%),
-linear-gradient(135deg,#1a0815 0%,#2a0c21 45%,#180914 100%);
-filter:blur(18px);animation:nebula 24s ease-in-out infinite alternate}
-.hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse 48% 42% at 50% 50%,#200a1ce8 0%,#210b1b9e 45%,transparent 100%)}
-#magic{position:absolute;inset:0;width:100%;height:100%;z-index:-2;pointer-events:none}
-.hero-content{position:relative;z-index:2;width:min(96%,1050px);text-align:center;padding:110px 10px 100px;pointer-events:none}
-.eyebrow{color:#ead1a2;font-size:clamp(12px,1.45vw,19px);letter-spacing:clamp(.16em,.5vw,.34em);text-shadow:0 0 12px #f6c88050;white-space:nowrap}
-.hero h1{font-weight:500;font-style:italic;font-size:clamp(92px,15vw,205px);letter-spacing:-.055em;line-height:1.12;margin:0;padding:.14em .10em .19em;overflow:visible;white-space:nowrap;background:linear-gradient(158deg,#f8b6bc 5%,#e996ac 24%,#c85b87 46%,#f4a5ac 70%,#b95379 92%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 13px #e87b9c55) drop-shadow(0 0 35px #dc6b8636);animation:titleIn 1.6s both}
-.ornament{font-size:clamp(20px,3vw,33px);color:#f5cf8b;text-shadow:0 0 12px #f5c16f8c;line-height:1;margin:5px auto 19px}
-.tagline{font-size:clamp(19px,2.6vw,31px);font-style:italic;font-weight:400;letter-spacing:.005em;margin:0;color:#d5d4ae;text-shadow:0 0 12px #210b1b}
-.scroll{position:absolute;z-index:3;bottom:clamp(24px,5vh,65px);left:50%;transform:translateX(-50%);color:#f5c16f;text-decoration:none;font-size:30px;text-shadow:0 0 14px #f5c16f77;animation:scrollFloat 3s ease-in-out infinite}
-section{padding:clamp(85px,11vw,145px) clamp(24px,10vw,170px);border-top:1px solid #e8ac7540;background:#210b1b}
-section:nth-of-type(even){background:#2a1023}
-.kicker{color:#f5c16f;letter-spacing:.25em;font-size:clamp(13px,1.6vw,19px)}
-h2{color:#dc8fa5;font-size:clamp(48px,7vw,86px);font-weight:500;font-style:italic;margin:10px 0 24px}
-section p{max-width:720px;font-size:clamp(20px,2.1vw,26px);line-height:1.6}
-footer{text-align:center;padding:32px;color:#d5d4ae;font-size:20px}
-@keyframes titleIn{from{opacity:0;transform:translateY(16px);filter:blur(8px)}to{opacity:1;transform:translateY(0);filter:drop-shadow(0 0 13px #e87b9c55) drop-shadow(0 0 35px #dc6b8636)}}
-@keyframes nebula{from{transform:translate(-1%,-1%) scale(1)}to{transform:translate(1.5%,1%) scale(1.06)}}
-@keyframes scrollFloat{50%{transform:translate(-50%,7px)}}
-@media(max-width:700px){.site-header{padding:15px 19px}.hero-content{padding:90px 0 80px;width:100%}.hero h1{font-size:clamp(85px,21vw,142px);padding:.17em .07em .23em;letter-spacing:-.065em}.eyebrow{font-size:clamp(10px,2.6vw,13px);letter-spacing:.19em}.ornament{margin:0 auto 20px}.tagline{font-size:clamp(18px,4.7vw,23px)}.hero::after{background:radial-gradient(ellipse 70% 32% at 50% 50%,#200a1cf0 0%,#210b1b9c 53%,transparent 100%)}}
+:root{--wine:#210b1b;--plum:#391426;--rose:#d77b9c;--cream:#e8d8c8;--gold:#f5c16f;--lightgold:#ffe5a7}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--wine);color:var(--cream);font-family:'Cormorant Garamond',Georgia,serif;overflow-x:hidden}
+.site-header{height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,5vw,76px);position:relative;z-index:4;background:#210b1bd9;border-bottom:1px solid #f5c16f27}
+.brand{font-size:28px;font-style:italic;color:#e5b6c6;text-decoration:none}.site-nav{display:flex;gap:24px}.site-nav a{font-size:14px;letter-spacing:.15em;text-decoration:none;color:#e6d2d1}.site-nav a:hover{color:var(--gold)}
+.hero{position:relative;isolation:isolate;min-height:calc(100svh - 68px);display:flex;align-items:center;justify-content:center;overflow:hidden;padding:100px 16px 115px;background:radial-gradient(ellipse 60% 48% at 50% 45%,#5b29415e,transparent 78%),radial-gradient(ellipse 45% 52% at 2% 25%,#7a34505c,transparent 80%),radial-gradient(ellipse 48% 55% at 100% 78%,#71314c55,transparent 80%),linear-gradient(145deg,#1b091a,#2b1025 50%,#1b0919)}
+.hero::before{content:"";position:absolute;inset:-25%;z-index:-3;pointer-events:none;background:radial-gradient(ellipse 19% 26% at 19% 30%,#ec80aa22,transparent 75%),radial-gradient(ellipse 19% 22% at 83% 77%,#ffba7130,transparent 75%),radial-gradient(ellipse 27% 30% at 81% 12%,#b9549c20,transparent 80%),radial-gradient(ellipse 25% 20% at 12% 85%,#e5b16b19,transparent 80%);filter:blur(24px);animation:nebula 20s ease-in-out infinite alternate}
+.hero::after{content:"";position:absolute;z-index:-1;inset:12% 11%;pointer-events:none;background:radial-gradient(ellipse 58% 41% at 50% 49%,#210b1bea 0%,#210b1bb8 58%,transparent 100%)}
+@keyframes nebula{to{transform:translate(2%,-1.5%) scale(1.08)}}
+#garden{position:absolute;inset:0;width:100%;height:100%;z-index:-2;pointer-events:none;overflow:visible}
+.vine-sway{transform-box:fill-box;transform-origin:center;animation:sway var(--sway,9s) ease-in-out infinite alternate;animation-delay:var(--delay,0s)}
+@keyframes sway{from{transform:rotate(-1.2deg) translateY(0)}to{transform:rotate(1.5deg) translateY(-6px)}}
+.vine-line{fill:none;stroke:url(#vineGold);stroke-linecap:round;stroke-width:2.2;filter:url(#softGlow)}
+.vine-glow{fill:none;stroke:#ffd68a;stroke-width:5.5;opacity:.23;filter:url(#strongGlow)}
+.leaf{fill:url(#leafGold);stroke:#ffdfa3;stroke-width:.55;filter:url(#softGlow)}
+.flower{filter:url(#flowerGlow)}.flower-petal{stroke:#ffd8c9;stroke-width:.65}.flower-core{fill:#ffe4a4;filter:url(#strongGlow)}
+.bloom{transform-box:fill-box;transform-origin:center;animation:bloom 2.2s cubic-bezier(.2,.8,.2,1) both,flowerBreath 7s ease-in-out infinite alternate;animation-delay:var(--bloom-delay,1s),calc(var(--bloom-delay,1s) + 2.2s)}
+@keyframes bloom{from{opacity:0;transform:scale(.08) rotate(-35deg)}to{opacity:1;transform:scale(1) rotate(0)}}
+@keyframes flowerBreath{from{transform:scale(.96) rotate(-2deg)}to{transform:scale(1.045) rotate(2deg)}}
+.star{fill:#ffdbb0;animation:twinkle var(--twinkle,4s) ease-in-out infinite alternate;animation-delay:var(--delay,0s)}@keyframes twinkle{from{opacity:.12}to{opacity:.85}}
+.hero-copy{text-align:center;position:relative;z-index:2;width:min(100%,900px);padding:28px 0 40px}
+.overline{font-size:clamp(12px,1.55vw,18px);letter-spacing:.24em;color:#f6d5a0;text-shadow:0 0 16px #ffc97e70;font-weight:500}
+h1{margin:14px auto 0;padding:.08em .12em .19em;max-width:100%;font-weight:500;font-style:italic;font-size:clamp(80px,16vw,178px);letter-spacing:-.065em;line-height:1.08;overflow:visible;background:linear-gradient(170deg,#ffe1dd 1%,#f3b4c8 28%,#d67b9e 57%,#f4b0bf 82%,#b85c88 100%);background-clip:text;-webkit-background-clip:text;color:transparent;filter:drop-shadow(0 0 13px #f09ab47d) drop-shadow(0 0 38px #d35a8c5c);animation:titleIn 1.8s both}
+@keyframes titleIn{from{opacity:0;transform:translateY(12px);filter:blur(9px)}to{opacity:1;transform:translateY(0);filter:drop-shadow(0 0 13px #f09ab47d) drop-shadow(0 0 38px #d35a8c5c)}}
+.tagline{font-style:italic;font-size:clamp(19px,2.3vw,27px);color:#ead5c9;letter-spacing:.03em;margin:6px 0 0;text-shadow:0 0 14px #ffb6c55c}
+.scroll-link{display:inline-block;margin-top:65px;color:#f2c77f;text-decoration:none;font-size:14px;letter-spacing:.21em;text-shadow:0 0 13px #ffda8852}
+section{padding:clamp(75px,10vw,130px) clamp(24px,9vw,150px);border-top:1px solid #f5c16f30;background:#210b1b}section:nth-of-type(2){background:#2b1125}.section-label{font-size:14px;letter-spacing:.22em;color:var(--gold)}h2{font-weight:500;font-style:italic;color:#e8a0b8;font-size:clamp(45px,7vw,76px);margin:12px 0 22px}section p{max-width:710px;font-size:clamp(20px,2vw,24px);line-height:1.6;color:#e9d8d5}footer{text-align:center;padding:30px;color:#e0b779;font-size:20px}
+@media(max-width:600px){.site-header{height:60px;padding:0 18px}.brand{font-size:24px}.site-nav{gap:15px}.site-nav a{font-size:12px}.hero{min-height:calc(100svh - 60px);padding:70px 12px 95px}.hero::after{inset:20% 0;background:radial-gradient(ellipse 54% 25% at 50% 48%,#210b1bf2,transparent 100%)}.overline{font-size:11px;letter-spacing:.18em}h1{font-size:clamp(70px,19vw,115px);letter-spacing:-.065em}.tagline{font-size:18px}.scroll-link{margin-top:55px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-<header class="site-header"><a href="#inicio">Áugure</a><nav><a href="#historia">HISTÓRIA</a><a href="#ficha">FICHA</a></nav></header>
+<header class="site-header"><a class="brand" href="#inicio">Áugure</a><nav class="site-nav"><a href="#historia">HISTÓRIA</a><a href="#ficha">FICHA</a></nav></header>
 <main>
 <div class="hero" id="inicio">
-<canvas id="magic" aria-hidden="true"></canvas>
-<div class="hero-content">
-<div class="ornament" aria-hidden="true">✧</div>
-<div class="eyebrow">ACANTHUS ✦ MYSTERIUM</div>
-<h1>Áugure</h1>
-<div class="ornament" aria-hidden="true">✧</div>
-<p class="tagline">Em busca da palavra perfeita.</p>
+<svg id="garden" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<defs>
+<linearGradient id="vineGold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b87834"/><stop offset=".32" stop-color="#ffebae"/><stop offset=".64" stop-color="#f2ba67"/><stop offset="1" stop-color="#b87834"/></linearGradient>
+<linearGradient id="leafGold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#80542b"/><stop offset=".5" stop-color="#f8d99b"/><stop offset="1" stop-color="#b37a3c"/></linearGradient>
+<radialGradient id="pinkPetal"><stop stop-color="#ffe3dd"/><stop offset=".42" stop-color="#eea4c4"/><stop offset="1" stop-color="#ae5c91"/></radialGradient>
+<radialGradient id="lilacPetal"><stop stop-color="#ffe3f1"/><stop offset=".4" stop-color="#bd91dc"/><stop offset="1" stop-color="#734d9c"/></radialGradient>
+<filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur in="SourceGraphic" stdDeviation="1.15" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<filter id="strongGlow" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<filter id="flowerGlow" x="-120%" y="-120%" width="340%" height="340%"><feGaussianBlur in="SourceGraphic" stdDeviation="1.4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<g id="stars"></g><g id="vines"></g>
+</svg>
+<div class="hero-copy"><div class="overline">ACANTHUS ✦ MYSTERIUM</div><h1>Áugure</h1><p class="tagline">Em busca da palavra perfeita.</p><a class="scroll-link" href="#historia">DESVENDAR ↓</a></div>
 </div>
-<a class="scroll" href="#historia" aria-label="Ir para a história">⌄</a>
-</div>
-<section id="historia"><div class="kicker">I · ERA UMA VEZ</div><h2>Entre o Ontem e o Amanhã</h2><p>Algumas histórias são escritas com tinta. Outras, com os fios invisíveis do destino.</p><p>A história de Áugure ainda está sendo contada.</p></section>
-<section id="ficha"><div class="kicker">II · MAGO: O DESPERTAR</div><h2>O Grimório</h2><p>Em breve: Arcanas, magias, méritos e os mistérios de Áugure.</p></section>
+<section id="historia"><div class="section-label">I · ERA UMA VEZ</div><h2>Entre o Ontem e o Amanhã</h2><p>Algumas histórias são escritas com tinta. Outras florescem nos caminhos invisíveis do destino.</p><p>A história de Áugure ainda está sendo contada.</p></section>
+<section id="ficha"><div class="section-label">II · MAGO: O DESPERTAR</div><h2>O Grimório</h2><p>Em breve: Arcanas, magias, méritos e os mistérios de Áugure.</p></section>
 </main><footer>Áugure · Em busca da palavra perfeita.</footer>
 <script>
-(()=>{
-'use strict';
-const canvas=document.getElementById('magic');
-const ctx=canvas.getContext('2d',{alpha:true});
-if(!ctx)return;
-const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-let W=0,H=0,dpr=1,paths=[],motes=[],last=0;
-const rand=(a,b)=>a+Math.random()*(b-a);
-const glyphs='abcdefghijklmnopqrstuvwxyzæœ';
-// Deterministic randomness keeps the composition stable on resizing.
-let seed=41283;
-function random(){seed=(seed*1664525+1013904223)>>>0;return seed/4294967296}
-function r(a,b){return a+(b-a)*random()}
-function bez(a,b,c,d,t){const u=1-t;return u*u*u*a+3*u*u*t*b+3*u*t*t*c+t*t*t*d}
-// These are deliberately different gestures, not parallel offsets of one curve.
-// Coordinates are relative to the screen, and the center remains open.
-const gestures=[
-[[-.22,.07],[.18,-.13],[.10,.29],[.52,.29]],
-[[-.17,.17],[.34,-.06],[.15,.43],[-.09,.50]],
-[[-.10,.37],[.25,.16],[.10,.12],[.57,.06]],
-[[.49,-.14],[.68,.19],[.94,.10],[1.18,.29]],
-[[.68,-.12],[.76,.28],[1.04,.14],[1.16,.06]],
-[[.84,-.12],[.97,.22],[.77,.35],[1.16,.47]],
-[[-.17,.61],[.24,.48],[.02,.90],[.59,1.12]],
-[[-.19,.77],[.15,.65],[.25,1.05],[.68,1.14]],
-[[-.08,1.09],[.28,.73],[.12,.86],[.58,1.18]],
-[[.43,1.16],[.79,.78],[.91,.93],[1.18,.72]],
-[[.67,1.14],[.80,.65],[1.01,.77],[1.14,.95]],
-[[.88,1.12],[.71,.85],[1.09,.51],[1.19,.54]],
-[[.97,.06],[.70,.33],[.99,.40],[1.18,.54]],
-[[-.16,.45],[.08,.36],[.15,.57],[-.12,.70]],
-[[.07,-.15],[.36,.09],[.25,.19],[.39,.24]],
-[[.95,.88],[.70,.91],[.64,1.11],[.78,1.16]]
-];
-function init(){
-const box=canvas.getBoundingClientRect();W=Math.max(1,box.width);H=Math.max(1,box.height);
-dpr=Math.min(devicePixelRatio||1,1.65);
-canvas.width=Math.round(W*dpr);canvas.height=Math.round(H*dpr);
-ctx.setTransform(dpr,0,0,dpr,0,0);
-seed=41283;paths=[];motes=[];
-const mobile=W<650;
-for(let i=0;i<gestures.length;i++){
-const base=gestures[i];
-// Each neighboring strand has its own anchors and control points.
-const count=mobile?2+Math.floor(r(0,3)):3+Math.floor(r(0,4));
-for(let j=0;j<count;j++){
-const pts=base.map((p,k)=>[p[0]+r(-.065,.065),p[1]+r(-.06,.06)]);
-const letters=[];
-const amount=mobile?Math.floor(r(4,9)):Math.floor(r(7,14));
-for(let k=0;k<amount;k++)letters.push({t:r(.03,.97),v:r(.001,.0035)*(random()<.5?-1:1),char:glyphs[Math.floor(r(0,glyphs.length))],change:r(0,4),offset:r(-11,11),size:r(mobile?8:9,mobile?14:17)});
-paths.push({pts,phase:r(0,7),amp:r(.004,.018),freq:r(.65,1.6),width:r(.45,1.35),opacity:r(.22,.75),letters,glow:random()<.28});
-}
-}
-for(let i=0;i<(mobile?100:165);i++)motes.push({x:r(0,W),y:r(0,H),size:r(.35,1.7),phase:r(0,7),gold:random()<.68});
-}
-function point(path,u,t){
-const p=path.pts;
-const x=bez(p[0][0],p[1][0],p[2][0],p[3][0],u)*W;
-const y=bez(p[0][1],p[1][1],p[2][1],p[3][1],u)*H;
-// Slow, continuous silk-like deformation. No per-frame randomness.
-const envelope=Math.sin(Math.PI*u);
-const wobble=Math.sin(u*7.1+t*path.freq*.30+path.phase)*path.amp*W*envelope;
-const drift=Math.sin(u*5.3-t*path.freq*.23+path.phase)*path.amp*H*envelope;
-return {x:x+wobble*.55,y:y+drift*.5};
-}
-// Soft center clearing: the threads remain on the edges, not over the title.
-function visibility(x,y){
-const nx=(x-W*.5)/(W*(W<650?.43:.32));
-const ny=(y-H*.49)/(H*(W<650?.27:.31));
-const distance=nx*nx+ny*ny;
-return .035+.965*Math.min(1,Math.max(0,(distance-.55)/.95));
-}
-function draw(t,dt){
-ctx.clearRect(0,0,W,H);
-// Gold and rose dust, particularly around the edges.
-for(const m of motes){
-const a=(.15+.24*(.5+.5*Math.sin(t*.8+m.phase)))*visibility(m.x,m.y);
-ctx.fillStyle=m.gold?`rgba(255,207,127,${a})`:`rgba(245,125,166,${a*.8})`;
-ctx.beginPath();ctx.arc(m.x,m.y,m.size,0,Math.PI*2);ctx.fill();
-}
-for(const p of paths){
-const N=42;
-// Draw as short segments so luminosity can fade smoothly near the words.
-let prev=point(p,0,t);
-for(let k=1;k<=N;k++){
-const u=k/N;const cur=point(p,u,t);
-const alpha=p.opacity*visibility((prev.x+cur.x)/2,(prev.y+cur.y)/2);
-if(alpha>.008){
-ctx.beginPath();ctx.moveTo(prev.x,prev.y);ctx.lineTo(cur.x,cur.y);
-ctx.lineWidth=p.width;ctx.strokeStyle=`rgba(255,197,113,${alpha})`;
-ctx.shadowColor=p.glow?'#ffb968':'#eaa06e';ctx.shadowBlur=p.glow?13:5;ctx.stroke();
-if(p.glow){ctx.lineWidth=.45;ctx.strokeStyle=`rgba(255,234,175,${alpha*.7})`;ctx.shadowBlur=2;ctx.stroke();}
-}
-prev=cur;
-}
-ctx.shadowBlur=0;
-for(const g of p.letters){
-g.t=(g.t+g.v*dt+1)%1;
-if(t>g.change){g.char=glyphs[Math.floor(Math.random()*glyphs.length)];g.change=t+rand(.7,2.5)}
-const q=point(p,g.t,t),q2=point(p,Math.min(.999,g.t+.003),t);
-const dx=q2.x-q.x,dy=q2.y-q.y,len=Math.hypot(dx,dy)||1;
-const x=q.x-dy/len*g.offset,y=q.y+dx/len*g.offset;
-const alpha=.83*visibility(x,y);
-if(alpha<.025)continue;
-ctx.save();ctx.translate(x,y);ctx.rotate(Math.atan2(dy,dx)*.28);
-ctx.textAlign='center';ctx.textBaseline='middle';ctx.font=`italic ${g.size}px 'Cormorant Garamond',Georgia,serif`;
-ctx.fillStyle=`rgba(255,215,142,${alpha})`;ctx.shadowColor='#ffcb73';ctx.shadowBlur=7;ctx.fillText(g.char,0,0);ctx.restore();
-}
-}
-ctx.shadowBlur=0;
-}
-let previous=0;
-function frame(now){
-if(!document.hidden){
-const dt=Math.min((now-previous)/1000||.016,.04);previous=now;
-draw(now/1000,dt);
-}else previous=now;
-requestAnimationFrame(frame);
-}
-init();draw(0,0);
-if(!reduced)requestAnimationFrame(frame);
-let resizeId;
-addEventListener('resize',()=>{clearTimeout(resizeId);resizeId=setTimeout(init,150)},{passive:true});
+(() => {
+  const NS='http://www.w3.org/2000/svg';
+  const root=document.getElementById('vines');
+  const starRoot=document.getElementById('stars');
+  const make=(tag,parent,attrs={})=>{const el=document.createElementNS(NS,tag);for(const [k,v] of Object.entries(attrs))el.setAttribute(k,v);parent.appendChild(el);return el};
+  // Trajetórias diferentes, distribuídas nos cantos e bordas.
+  // Nenhuma vinha precisa atravessar a área central do título.
+  const designs=[
+    ['M -60 490 C 70 475 140 405 103 280 S 20 105 155 -50',1.0],
+    ['M -50 755 C 120 650 45 520 160 460 S 235 280 108 178',1.12],
+    ['M 5 850 C 125 720 205 700 180 580 S 60 390 245 245',.91],
+    ['M 230 -60 C 135 50 55 110 185 185 S 320 230 245 330',1.1],
+    ['M 385 -70 C 275 5 315 98 235 137 S 145 170 125 250',.8],
+    ['M 1245 450 C 1085 430 1090 315 1130 240 S 1250 90 1100 -50',1.08],
+    ['M 1280 730 C 1080 640 1160 520 1030 445 S 945 305 1085 190',1.18],
+    ['M 1195 850 C 1050 715 960 720 1010 585 S 1170 425 980 290',.94],
+    ['M 970 -60 C 1070 30 1160 80 1055 165 S 900 220 970 330',1.14],
+    ['M 815 -65 C 920 0 870 105 970 142 S 1075 190 1095 245',.83],
+    ['M -50 45 C 90 100 195 5 305 80 S 395 115 450 62',.86],
+    ['M 1260 45 C 1130 130 1020 15 905 90 S 825 110 760 65',1.03],
+    ['M -50 790 C 100 710 205 825 320 730 S 370 675 445 735',.9],
+    ['M 1250 790 C 1090 700 1010 835 895 735 S 820 690 765 742',1.06]
+  ];
+  // Deterministic random for stable botanical placement.
+  let seed=24857;
+  const random=()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296};
+  const between=(a,b)=>a+(b-a)*random();
+  function leaf(parent,x,y,angle,size){
+    const g=make('g',parent,{transform:`translate(${x} ${y}) rotate(${angle})`});
+    make('path',g,{class:'leaf',d:`M0 0 Q ${size*.25} ${-size*.78} ${size} ${-size*1.5} Q ${size*.92} ${-size*.37} 0 0 Z`});
+    make('path',g,{d:`M0 0 Q ${size*.55} ${-size*.72} ${size} ${-size*1.5}`,fill:'none',stroke:'#ffe2a2','stroke-width':'.5',opacity:'.75'});
+  }
+  function bloom(parent,x,y,r,kind,delay){
+    const outer=make('g',parent,{transform:`translate(${x} ${y})`});
+    const g=make('g',outer,{class:'bloom',style:`--bloom-delay:${delay}s`});
+    const petals=kind==='thistle'?13:8;
+    const fill=kind==='thistle'?'url(#lilacPetal)':'url(#pinkPetal)';
+    for(let i=0;i<petals;i++){
+      const a=i*360/petals;
+      const p=make('g',g,{transform:`rotate(${a})`});
+      if(kind==='thistle'){
+        make('path',p,{class:'flower-petal',fill,d:`M -${r*.12} -${r*.12} Q -${r*.45} -${r*.9} 0 -${r*1.65} Q ${r*.35} -${r*.82} ${r*.12} -${r*.12} Z`});
+      }else{
+        make('path',p,{class:'flower-petal',fill,d:`M 0 0 C -${r*.75} -${r*.3},-${r*.75} -${r*1.2},0 -${r*1.25} C ${r*.75} -${r*1.2},${r*.75} -${r*.3},0 0 Z`});
+      }
+    }
+    make('circle',g,{class:'flower-core',r:r*.22});
+    for(let i=0;i<5;i++){
+      const a=i*Math.PI*2/5;
+      make('circle',g,{cx:Math.cos(a)*r*.32,cy:Math.sin(a)*r*.32,r:r*.065,fill:'#ffe4a4'});
+    }
+  }
+  designs.forEach(([d,mult],i)=>{
+    const group=make('g',root,{class:'vine-sway',style:`--sway:${between(8,14).toFixed(1)}s;--delay:${(-between(0,7)).toFixed(1)}s`});
+    const glow=make('path',group,{class:'vine-glow',d});
+    const path=make('path',group,{class:'vine-line',d});
+    // Reveal growth along each vine, then keep it gently swaying.
+    const length=path.getTotalLength();
+    [glow,path].forEach(el=>{
+      el.style.strokeDasharray=`${length} ${length}`;
+      el.style.strokeDashoffset=length;
+      el.animate([{strokeDashoffset:length},{strokeDashoffset:0}],{duration:2800+Math.round(i*190),delay:i*135,fill:'forwards',easing:'cubic-bezier(.3,.65,.2,1)'});
+    });
+    const foliage=make('g',group);
+    const count=7+Math.floor(random()*5);
+    for(let j=1;j<=count;j++){
+      const dist=length*(j/(count+1));
+      const pos=path.getPointAtLength(dist);
+      const prev=path.getPointAtLength(Math.max(0,dist-3));
+      const next=path.getPointAtLength(Math.min(length,dist+3));
+      const angle=Math.atan2(next.y-prev.y,next.x-prev.x)*180/Math.PI;
+      const side=j%2?1:-1;
+      const size=between(8,16)*mult;
+      leaf(foliage,pos.x,pos.y,angle+(side>0?25:205),size);
+      if(j%3===0 || (j===count-1 && i%2===0)){
+        const x=pos.x+Math.cos((angle+side*75)*Math.PI/180)*15;
+        const y=pos.y+Math.sin((angle+side*75)*Math.PI/180)*15;
+        bloom(foliage,x,y,between(8,15)*mult,(i+j)%3===0?'thistle':'rose',.6+i*.18+j*.19);
+      }
+    }
+    if(i%2===0){
+      const pos=path.getPointAtLength(length*.83);
+      bloom(foliage,pos.x,pos.y,between(11,18),i%4===0?'thistle':'rose',1.3+i*.15);
+    }
+  });
+  // Tiny gold and pink stars, mostly toward the borders.
+  for(let i=0;i<115;i++){
+    let x=between(0,1200),y=between(0,800);
+    if(x>350&&x<850&&y>250&&y<580)continue;
+    make('circle',starRoot,{class:'star',cx:x.toFixed(1),cy:y.toFixed(1),r:between(.45,1.8).toFixed(1),fill:i%5===0?'#f6a3bc':'#ffdda0',style:`--twinkle:${between(2.5,6).toFixed(1)}s;--delay:${(-between(0,5)).toFixed(1)}s`});
+  }
 })();
 </script>
 </body>
 </html>
+
