@@ -10,8 +10,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
- <style>
+<link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
+<style>
 :root{--night:#210b1b;--gold:#f5c16f;--cream:#d5d4ae}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -29,10 +29,12 @@ body{margin:0;background:var(--night);color:var(--cream);font-family:'Cormorant 
 /* Cada ciclo começa e termina invisível: a letra muda apenas enquanto apagada. */
 @keyframes letterStar{0%,10%{opacity:0;transform:translate3d(-3px,4px,0)}38%,56%{opacity:var(--high,.95);transform:translate3d(2px,-3px,0)}88%,100%{opacity:0;transform:translate3d(5px,-7px,0)}}
 .hero-content{position:relative;z-index:3;width:min(100%,1100px);text-align:center;padding:100px 12px 110px;pointer-events:none}
-.eyebrow{color:#ead1a2;font-size:clamp(12px,1.45vw,19px);letter-spacing:clamp(.16em,.5vw,.34em);text-align: center;transform: translateX(-25px);text-shadow:0 0 12px #f6c88050;white-space:nowrap}
-.hero h1{font-family: 'Tangerine',cursive !important;font-weight:700 !important;font-style:normal!important;font-size:clamp(110px,18vw,240px);letter-spacing:-.055em;line-height:1.35;margin:0;padding:.13em .15em .22em;overflow:visible;white-space:nowrap;background:linear-gradient(158deg,#f8b6bc 5%,#e996ac 24%,#c85b87 46%,#f4a5ac 70%,#b95379 92%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 12px #e87b9c55) drop-shadow(0 0 24px #dc6b8636);animation:titleIn 1.2s both}
+/* Escurecimento difuso somente atrás do conteúdo, sem caixa aparente. */
+.hero-content::before{content:"";position:absolute;inset:10% 4%;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at center,rgba(13,4,23,.74) 0%,rgba(13,4,23,.48) 38%,rgba(13,4,23,.17) 63%,transparent 78%)}
+.eyebrow{color:#ead1a2;font-size:clamp(12px,1.45vw,19px);letter-spacing:clamp(.16em,.5vw,.34em);text-align:center;text-shadow:0 2px 7px rgba(0,0,0,.95),0 0 17px rgba(0,0,0,.9);white-space:nowrap}
+.hero h1{font-family:'Italianno',cursive;font-weight:400;font-style:normal;font-size:clamp(110px,18vw,240px);letter-spacing:0;line-height:1.35;margin:0;padding:.13em .15em .22em;overflow:visible;white-space:nowrap;background:linear-gradient(158deg,#f8b6bc 5%,#e996ac 24%,#c85b87 46%,#f4a5ac 70%,#b95379 92%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 12px #e87b9c55) drop-shadow(0 0 24px #dc6b8636);animation:titleIn 1.2s both}
 .ornament{font-size:clamp(20px,3vw,33px);color:#f5cf8b;text-shadow:0 0 12px #f5c16f8c;line-height:1;margin:5px auto 12px}
-.tagline{font-size:clamp(17px,2vw,25px);font-style:italic;font-weight:400;margin:0;color:#d5d4ae;text-shadow:0 0 12px #210b1b}
+.tagline{font-size:clamp(17px,2vw,25px);font-style:italic;font-weight:400;margin:0;color:#e6e4c9;text-shadow:0 2px 7px rgba(0,0,0,.95),0 0 17px rgba(0,0,0,.9)}
 .scroll{position:absolute;z-index:4;bottom:clamp(24px,5vh,65px);left:50%;transform:translateX(-50%);color:#f5c16f;text-decoration:none;font-size:30px;text-shadow:0 0 14px #f5c16f77;animation:scrollFloat 3s ease-in-out infinite}
 section{padding:clamp(85px,11vw,145px) clamp(24px,10vw,170px);border-top:1px solid #e8ac7540;background:#210b1b}
 section:nth-of-type(even){background:#2a1023}
@@ -42,7 +44,7 @@ section p{max-width:720px;font-size:clamp(20px,2.1vw,26px);line-height:1.6}
 footer{text-align:center;padding:32px;color:#d5d4ae;font-size:20px}
 @keyframes titleIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 @keyframes scrollFloat{50%{transform:translate(-50%,7px)}}
-@media(max-width:700px),(pointer:coarse){.sky-glyph:nth-child(n+33){display:none}.site-header{padding:15px 19px}.hero-content{padding:90px 0 80px}.hero h1{font-size:clamp(67px,19vw,130px);letter-spacing:-.06em;padding:.18em .08em .25em}.eyebrow{font-size:clamp(10px,2.6vw,13px);letter-spacing:.19em}.tagline{font-size:clamp(17px,4.3vw,21px)}.hero::after{background:radial-gradient(ellipse 75% 35% at 50% 50%,rgba(15,5,25,.6),transparent)}}
+@media(max-width:700px),(pointer:coarse){.sky-glyph:nth-child(n+33){display:none}.site-header{padding:15px 19px}.hero-content{padding:90px 0 80px}.hero h1{font-size:clamp(67px,19vw,130px);letter-spacing:0;padding:.18em .08em .25em}.eyebrow{font-size:clamp(10px,2.6vw,13px);letter-spacing:.19em}.tagline{font-size:clamp(17px,4.3vw,21px)}.hero::after{background:radial-gradient(ellipse 75% 35% at 50% 50%,rgba(15,5,25,.6),transparent)}.hero-content::before{inset:12% 0;background:radial-gradient(ellipse at center,rgba(13,4,23,.78),rgba(13,4,23,.38) 55%,transparent 80%)}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important}.sky-glyph{opacity:.55!important}}
 /* Teresa: um único degradê radial fecha a visão pelas bordas. */
 @property --teresa-opening{syntax:'<length>';inherits:false;initial-value:160vmax}
@@ -136,3 +138,4 @@ window.addEventListener('pagehide',end);
 </script>
 </body>
 </html>
+
