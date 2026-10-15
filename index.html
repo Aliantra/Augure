@@ -26,10 +26,8 @@ body{margin:0;background:var(--night);color:var(--cream);font-family:'Cormorant 
 /* Letras-estrelas: apenas transform e opacity, sem Canvas ou filtros por quadro. */
 .alphabet-sky{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none;contain:layout paint}
 .sky-glyph{position:absolute;display:block;font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:600;line-height:1;color:#ffe3a0;opacity:0;text-shadow:0 0 5px #ffe7a8,0 0 13px #ffca63,0 0 25px #e8a33b;animation:letterStar var(--duration,7s) ease-in-out var(--delay,0s) infinite;user-select:none}
-/* Cada ciclo começa e termina invisível: a letra muda apenas enquanto apagada. */
 @keyframes letterStar{0%,10%{opacity:0;transform:translate3d(-3px,4px,0)}38%,56%{opacity:var(--high,.95);transform:translate3d(2px,-3px,0)}88%,100%{opacity:0;transform:translate3d(5px,-7px,0)}}
 .hero-content{position:relative;z-index:3;width:min(100%,1100px);text-align:center;padding:100px 12px 110px;pointer-events:none}
-/* Escurecimento difuso somente atrás do conteúdo, sem caixa aparente. */
 .hero-content::before{content:"";position:absolute;inset:10% 4%;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at center,rgba(13,4,23,.74) 0%,rgba(13,4,23,.48) 38%,rgba(13,4,23,.17) 63%,transparent 78%)}
 .eyebrow{color:#ead1a2;font-size:clamp(12px,1.45vw,19px);letter-spacing:clamp(.16em,.5vw,.34em);text-align:center;text-shadow:0 2px 7px rgba(0,0,0,.95),0 0 17px rgba(0,0,0,.9);white-space:nowrap}
 .hero h1{font-family:'Lavishly Yours',cursive;font-weight:400;font-style:normal;font-size:clamp(110px,18vw,240px);letter-spacing:0;line-height:1.35;margin:0;padding:.13em .15em .22em;overflow:visible;white-space:nowrap;background:linear-gradient(158deg,#f8b6bc 5%,#e996ac 24%,#c85b87 46%,#f4a5ac 70%,#b95379 92%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 12px #e87b9c55) drop-shadow(0 0 24px #dc6b8636);animation:titleIn 1.2s both}
@@ -46,7 +44,6 @@ footer{text-align:center;padding:32px;color:#d5d4ae;font-size:20px}
 @keyframes scrollFloat{50%{transform:translate(-50%,7px)}}
 @media(max-width:700px),(pointer:coarse){.sky-glyph:nth-child(n+33){display:none}.site-header{padding:15px 19px}.hero-content{padding:90px 0 80px}.hero h1{font-size:clamp(67px,19vw,130px);letter-spacing:0;padding:.18em .08em .25em}.eyebrow{font-size:clamp(10px,2.6vw,13px);letter-spacing:.19em}.tagline{font-size:clamp(17px,4.3vw,21px)}.hero::after{background:radial-gradient(ellipse 75% 35% at 50% 50%,rgba(15,5,25,.6),transparent)}.hero-content::before{inset:12% 0;background:radial-gradient(ellipse at center,rgba(13,4,23,.78),rgba(13,4,23,.38) 55%,transparent 80%)}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important}.sky-glyph{opacity:.55!important}}
-/* Teresa: um único degradê radial fecha a visão pelas bordas. */
 @property --teresa-opening{syntax:'<length>';inherits:false;initial-value:160vmax}
 .teresa-veil{position:fixed;inset:0;z-index:9999;visibility:hidden;pointer-events:none;overflow:hidden;isolation:isolate}
 .teresa-veil.active{visibility:visible}
@@ -63,11 +60,23 @@ body.teresa-shaking .site-header,body.teresa-shaking main,body.teresa-shaking fo
 @keyframes teresaTextTremor{0%{transform:translate(0,0)}25%{transform:translate(.7px,-.4px)}50%{transform:translate(-.8px,.5px)}75%{transform:translate(.4px,.8px)}100%{transform:translate(0,0)}}
 @media(max-width:700px),(pointer:coarse){.teresa-veil{display:none!important}}
 @media(prefers-reduced-motion:reduce){body.teresa-shaking .site-header,body.teresa-shaking main,body.teresa-shaking footer,.teresa-veil.active .teresa-message span{animation:none!important}}
-@media (min-width: 701px) and (pointer:fine) {
- .hero h1 { position: relative; left: -35px; }
- .hero .eyebrow { text-shadow: 0 2px 5px #000, 0 0 12px rgba(0, 0, 0, .95), 0 0 24px rgba(0, 0, 0, .9), 0 0 36px rgba(0, 0, 0, .75);}
- .hero .tagline { text-shadow: 0 2px 5px #000, 0 0 12px rgba(0, 0, 0, .95), 0 0 24px rgba(0, 0, 0, .9), 0 0 36px rgba(0, 0, 0, .75);}
-}
+@media (min-width: 701px) and (pointer:fine){.hero h1{position:relative;left:-35px}.hero .eyebrow,.hero .tagline{text-shadow:0 2px 5px #000,0 0 12px rgba(0,0,0,.95),0 0 24px rgba(0,0,0,.9),0 0 36px rgba(0,0,0,.75)}}
+/* História: diagramação de conto de fadas, com leitura acessível. */
+#historia{padding:clamp(75px,10vw,135px) clamp(22px,6vw,100px);background:#210b1b}
+.story-intro{text-align:center;max-width:790px;margin:0 auto clamp(70px,10vw,115px)}
+.story-intro h2{font-size:clamp(43px,7vw,78px);line-height:1.05;text-wrap:balance}
+.story-intro .story-flourish{color:var(--gold);font-size:26px;opacity:.85}
+.story-chapter{max-width:740px;margin:0 auto;padding:0 0 clamp(72px,9vw,110px)}
+.story-chapter+.story-chapter{padding-top:clamp(66px,8vw,100px);border-top:1px solid rgba(245,193,111,.24)}
+.story-number{display:block;color:#e8c58b;letter-spacing:.25em;font:500 clamp(12px,1.3vw,15px)/1.5 Georgia,serif;margin-bottom:12px;text-align:left}
+.story-chapter h3{display:flex;align-items:center;gap:20px;text-align:left;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(39px,5.7vw,61px);font-style:normal;font-weight:600;color:#e9b5c4;line-height:1.08;margin:0 0 clamp(35px,5vw,55px);text-wrap:balance}
+.story-chapter h3::after{content:'';height:1px;min-width:20px;flex:1;background:linear-gradient(90deg,rgba(245,193,111,.55),transparent)}
+.story-chapter p{max-width:100%;font-family:Georgia,'Times New Roman',serif;font-size:clamp(17px,1.8vw,20px);line-height:1.85;letter-spacing:.005em;margin:0 0 1.3em;color:#eee2dc;overflow-wrap:break-word}
+.story-chapter p:last-child{margin-bottom:0}
+.story-chapter p.story-ending{color:#f2d4b1;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(23px,2.6vw,30px);font-style:italic;font-weight:500;text-align:center;line-height:1.5;margin-top:2em}
+.story-chapter:first-of-type p:first-of-type::first-letter{float:left;font-family:'Cormorant Garamond',Georgia,serif;font-size:5.3em;font-weight:600;line-height:.73;padding:.12em .12em 0 0;color:#f3c985;text-shadow:1px 1px 0 #a55b80,0 0 18px rgba(245,193,111,.17)}
+@media(max-width:700px){#historia{padding:75px 23px}.story-intro{margin-bottom:70px}.story-chapter h3{font-size:clamp(36px,9vw,48px);gap:12px}.story-chapter p{font-size:18px;line-height:1.8}.story-chapter:first-of-type p:first-of-type::first-letter{font-size:4.7em;padding-top:.14em}.story-number{font-size:12px}}
+@media(max-width:360px){.story-chapter h3{font-size:35px}.story-chapter p{font-size:17px}}
 </style>
 </head>
 <body>
@@ -79,7 +88,48 @@ body.teresa-shaking .site-header,body.teresa-shaking main,body.teresa-shaking fo
 <div class="hero-content"><div class="ornament" aria-hidden="true">✧</div><div class="eyebrow">ACANTHUS ✦ MYSTERIUM</div><h1>Áugure</h1><div class="ornament" aria-hidden="true">✧</div><p class="tagline">Em busca da palavra perfeita.</p></div>
 <a class="scroll" href="#historia" aria-label="Ir para a história">⌄</a>
 </div>
-<section id="historia"><div class="kicker">I · ERA UMA VEZ</div><h2>Entre o Ontem e o Amanhã</h2><p>Algumas histórias são escritas com tinta. Outras, com os fios invisíveis do destino.</p><p>A história de Áugure ainda está sendo contada.</p></section>
+<section id="historia" aria-labelledby="historia-titulo">
+<div class="story-intro"><div class="kicker">I · ERA UMA VEZ</div><h2 id="historia-titulo">Entre o Ontem e o Amanhã</h2><div class="story-flourish" aria-hidden="true">✧</div></div>
+<article class="story-chapter" aria-labelledby="capitulo-1"><span class="story-number">CAPÍTULO I</span><h3 id="capitulo-1">A Menina Peculiar</h3>
+<p>Hanna Virelli sempre foi uma criança um tanto peculiar. Enquanto outras crianças inventavam histórias para seus brinquedos, ela inventava personalidades para as letras do alfabeto.</p>
+<p>O A era tranquilo e confiável. O Z, atrevido e exibido. O M parecia uma senhora muito séria, enquanto o Q tinha toda a aparência de alguém que sabia guardar segredos.</p>
+<p>Curiosa, intrometida e dona de uma imaginação que seus pais jamais conseguiram acompanhar, Hanna adorava palavras difíceis, cruzadinhas e, principalmente, Scrabble. Tinha certeza de que existia algo escondido entre as letras, alguma espécie de segredo que o mundo ainda não havia aprendido a ler.</p>
+<p>Foi durante uma madrugada de outono, diante de uma palavra particularmente difícil, que sua vida mudou. Ao encaixar a última peça no tabuleiro, Hanna enxergou o mundo de uma maneira completamente nova. Os caminhos do Destino se abriram diante dela, revelando possibilidades que jamais imaginara existir.</p>
+<p>Hanna havia Despertado.</p>
+<p>Seus pais acharam que ela precisava descansar e a enviaram para passar um tempo com sua tia-avó, Vana. O que não sabiam era que a velha senhora também era uma maga, uma Acanthus que reconheceu imediatamente o que havia acontecido com a sobrinha-neta.</p>
+<p>Entre livros antigos, enigmas e lições que frequentemente terminavam em mais perguntas do que respostas, Hanna começou a descobrir os segredos da magia.</p>
+<p>Pela primeira vez, encontrou alguém que compreendia suas esquisitices. E descobriu que o mundo era ainda mais extraordinário do que sempre suspeitara.</p>
+</article>
+<article class="story-chapter" aria-labelledby="capitulo-2"><span class="story-number">CAPÍTULO II</span><h3 id="capitulo-2">O Destino que Foi Recusado</h3>
+<p>Aos doze anos, Hanna descobriu que nem todos os caminhos revelados pelo Destino levavam a algum lugar bonito.</p>
+<p>Após um sequestro que a levou a um hospital, ela se viu diante de Teresa, o espírito de uma bruxa ancestral que se recusava a desaparecer. E foi ali que descobriu o terrível futuro que a aguardava: Hanna estava destinada a se tornar o receptáculo daquela presença, carregando-a dentro de si, sozinha, pelo resto da vida.</p>
+<p>Era um destino cruel para qualquer pessoa. Para uma menina de doze anos, era simplesmente injusto.</p>
+<p>Mas Hanna não estava sozinha.</p>
+<p>Will e Sarah, dois magos adultos que enfrentaram aquele horror ao seu lado, viram o que o Destino havia reservado para ela. E decidiram que aquilo não iria acontecer.</p>
+<p>Não porque tivessem encontrado uma solução perfeita, nem porque soubessem que tudo terminaria bem. Mas porque se recusaram a aceitar que uma criança fosse condenada a carregar sozinha o peso de uma bruxa morta.</p>
+<p>Os dois escolheram dividir aquele fardo com Hanna.</p>
+<p>Juntos, desafiaram o destino que havia sido escrito para ela. Teresa foi fragmentada entre os três, e aquilo que deveria ser a maldição de uma única menina tornou-se a maldição de todos eles.</p>
+<p>Will e Sarah sacrificaram a liberdade que tinham para que Hanna não perdesse a sua.</p>
+<p>O mundo jamais soube o que realmente aconteceu. Para todos, Hanna era apenas uma menina que havia sobrevivido a um terrível sequestro. Seus pais a levaram à terapia, preocupados com as mudanças no comportamento da filha, sem imaginar o que ela carregava dentro de si.</p>
+<p>Hanna tentou seguir em frente. Voltou à escola, continuou seus estudos mágicos e reencontrou Elias, o misterioso Senhor Meia-Noite que conhecera na infância.</p>
+<p>Mas nunca esqueceu o que Will e Sarah fizeram por ela.</p>
+<p>Afinal, o Destino havia decidido que ela deveria sofrer sozinha.</p>
+<p class="story-ending">E duas pessoas decidiram amá-la mais do que obedecer ao Destino.</p>
+</article>
+<article class="story-chapter" aria-labelledby="capitulo-3"><span class="story-number">CAPÍTULO III</span><h3 id="capitulo-3">Os Fios que Ainda Restam</h3>
+<p>Os anos passaram, e Hanna cresceu sem perder a curiosidade que sempre a acompanhou. Aos poucos, encontrou seu lugar no Mysterium, uma ordem dedicada aos mistérios da magia, e aproximou-se da tradição Daoine sob a orientação de Vivienne, uma feiticeira tão elegante quanto exigente.</p>
+<p>Entre grimórios, enigmas e discussões com sua nova mentora, Hanna aprendeu que o Destino não era uma sentença imutável. Já havia testemunhado isso da maneira mais dolorosa possível.</p>
+<p>Will e Sarah tinham provado que até mesmo um futuro aparentemente inevitável podia ser recusado.</p>
+<p>Por muito tempo, os três seguiram suas vidas carregando as consequências daquela escolha. A presença de Teresa permanecia dividida entre eles, uma lembrança constante de tudo o que haviam enfrentado e do preço que pagaram.</p>
+<p>Até que Will e Sarah desapareceram.</p>
+<p>Sem despedidas. Sem explicações. Sem rastros que Hanna conseguisse seguir.</p>
+<p>Para alguém acostumada a enxergar possibilidades nos caminhos do Destino, aquele silêncio era assustador. Era como se duas pessoas tivessem sido arrancadas da própria história, deixando apenas páginas em branco.</p>
+<p>Mas Hanna se recusava a acreditar que aquele fosse o fim.</p>
+<p>Agora, aos vinte anos, ela está determinada a encontrá-los. Não apenas porque os dois fazem parte de seu passado, mas porque, quando ela era apenas uma menina diante de um futuro terrível, Will e Sarah escolheram ficar ao seu lado.</p>
+<p>Naquela época, eles desafiaram o Destino por ela.</p>
+<p class="story-ending">Agora, se for preciso, Hanna desafiará o Destino por eles.</p>
+</article>
+</section>
 <section id="ficha"><div class="kicker">II · MAGO: O DESPERTAR</div><h2>O Grimório</h2><p>Em breve: Arcanas, magias, méritos e os mistérios de Áugure.</p></section>
 </main><footer>Áugure · Em busca da palavra perfeita.</footer>
 <div id="teresa-veil" class="teresa-veil" aria-hidden="true"><div class="teresa-dark"></div><div class="teresa-message"><span>Eu te vejo...</span></div></div>
@@ -104,7 +154,6 @@ for(let i=0;i<56;i++){
  el.style.setProperty('--high',between(.75,1).toFixed(2));
  el.style.setProperty('--duration',between(5.5,10.5).toFixed(2)+'s');
  el.style.setProperty('--delay',(-between(0,11)).toFixed(2)+'s');
- // A cada novo ciclo, o brilho está apagado; substituímos por outra letra.
  el.addEventListener('animationiteration',()=>{
   let next=el.textContent;
   while(next===el.textContent)next=chars[Math.floor(Math.random()*chars.length)];
