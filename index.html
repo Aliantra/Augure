@@ -63,6 +63,11 @@ body.teresa-shaking .site-header,body.teresa-shaking main,body.teresa-shaking fo
 @keyframes teresaTextTremor{0%{transform:translate(0,0)}25%{transform:translate(.7px,-.4px)}50%{transform:translate(-.8px,.5px)}75%{transform:translate(.4px,.8px)}100%{transform:translate(0,0)}}
 @media(max-width:700px),(pointer:coarse){.teresa-veil{display:none!important}}
 @media(prefers-reduced-motion:reduce){body.teresa-shaking .site-header,body.teresa-shaking main,body.teresa-shaking footer,.teresa-veil.active .teresa-message span{animation:none!important}}
+@media (min-width: 701px) and (pointer:fine) {
+ .hero h1 { position: relative; left: -35px; }
+ .hero .eyebrow { text-shadow: 0 2px 5px #000, 0 0 12px rgba(0, 0, 0, .95), 0 0 24px rgba(0, 0, 0, .9), 0 0 36px rgba(0, 0, 0, .75);}
+ .hero .tagline { text-shadow: 0 2px 5px #000, 0 0 12px rgba(0, 0, 0, .95), 0 0 24px rgba(0, 0, 0, .9), 0 0 36px rgba(0, 0, 0, .75);}
+}
 </style>
 </head>
 <body>
