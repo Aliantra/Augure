@@ -4,81 +4,133 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Augure | Hanna</title>
+<meta name="theme-color" content="#245c48">
+<title>Áugure | Mago: O Despertar</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,600,40,1;1,9..144,600,40,1&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,500&family=DM+Sans:wght@400;500&display=swap');
+:root {
+  --green: #245c48;
+  --deep-green: #153f34;
+  --mint: #a7f2bc;
+  --pink: #ff65ad;
+  --light-pink: #ffc2df;
+  --gold: #f5cf75;
+  --cream: #fff4e8;
+}
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
-  background: #0d1714;
-  color: #f4e9dd;
-  font-family: 'DM Sans', sans-serif;
+  color: var(--cream);
+  background: var(--deep-green);
+  font-family: "DM Sans", sans-serif;
   overflow-x: hidden;
 }
 
 header {
   position: relative;
-  z-index: 2;
-  padding: 25px 7%;
+  z-index: 10;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #ffffff20;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 24px 6%;
+  background: #184637;
+  border-bottom: 1px solid #a7f2bc35;
 }
 
 .logo {
-  color: #e1b969;
-  font-size: 22px;
-  letter-spacing: 3px;
+  color: var(--light-pink);
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 26px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  gap: 22px;
 }
 
 nav a {
-  color: #f4e9dd;
+  color: var(--cream);
   text-decoration: none;
-  margin-left: 18px;
   font-size: 12px;
+  letter-spacing: 2px;
+  transition: color .3s;
+}
+
+nav a:hover {
+  color: var(--pink);
 }
 
 .hero {
-  min-height: 85vh;
+  position: relative;
+  min-height: 88vh;
+  min-height: 88svh;
   display: flex;
-  align-items: center;
   justify-content: center;
-  position: relative;
+  align-items: center;
   overflow: hidden;
-  text-align: center;
-  padding: 40px 20px;
+  padding: 100px 20px;
+  isolation: isolate;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 70%,
+      #60b98a90 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse at 15% 25%,
+      #ef78ae55 0%,
+      transparent 42%
+    ),
+    radial-gradient(
+      ellipse at 90% 20%,
+      #d8bb6955 0%,
+      transparent 40%
+    ),
+    linear-gradient(
+      145deg,
+      #215b48,
+      #34795a 55%,
+      #194638
+    );
 }
 
-.content {
-  position: relative;
-  z-index: 1;
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  z-index: -1;
+  background:
+    radial-gradient(
+      circle,
+      #ffb8d840,
+      transparent 55%
+    );
+  animation: glow 12s ease-in-out infinite alternate;
 }
 
-h1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-weight: 500;
-  font-size: clamp(90px, 17vw, 170px);
-  color: #ef9fbd;
-  margin: 0;
-}
-
-.subtitle {
-  color: #e1b969;
-  letter-spacing: 4px;
-  font-size: 12px;
-}
-
-.description {
-  color: #a5cdb5;
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 26px;
-  margin-top: 30px;
+@keyframes glow {
+  from {
+    transform: translate(-8%, -5%) scale(.9);
+  }
+  to {
+    transform: translate(8%, 7%) scale(1.2);
+  }
 }
 
 .magic {
@@ -88,47 +140,219 @@ h1 {
   pointer-events: none;
 }
 
-.letter {
+.symbol {
   position: absolute;
-  font-family: 'Cormorant Garamond', serif;
-  color: #e1b969;
+  font-family: Georgia, serif;
   opacity: 0;
-  animation: float 12s infinite ease-in-out;
+  user-select: none;
+  animation: floatMagic linear infinite;
+  text-shadow: 0 0 15px currentColor;
 }
 
-@keyframes float {
+@keyframes floatMagic {
   0% {
-    transform: translateY(60px) rotate(-15deg);
     opacity: 0;
+    transform:
+      translate3d(0, 55px, 0)
+      rotate(-20deg);
   }
-  30% { opacity: .65; }
-  70% { opacity: .5; }
+
+  25% {
+    opacity: .85;
+  }
+
+  75% {
+    opacity: .65;
+  }
+
   100% {
-    transform: translateY(-120px) rotate(20deg);
     opacity: 0;
+    transform:
+      translate3d(35px, -150px, 0)
+      rotate(35deg);
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 950px;
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-family: "DM Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 15px 0;
+  color: var(--pink);
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(75px, 15vw, 175px);
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: -5px;
+  line-height: 1.2;
+
+  text-shadow:
+    0 3px 0 #a83e72,
+    0 0 35px #ffb4d080,
+    0 0 90px #ffb4d040;
+}
+
+.ornament {
+  color: var(--gold);
+  font-size: 24px;
+  letter-spacing: 16px;
+  margin: 12px 0 25px;
+}
+
+.description {
+  color: var(--cream);
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(23px, 4vw, 35px);
+  font-style: italic;
+  line-height: 1.5;
+  text-shadow: 0 2px 12px #12382c;
+}
+
+.scroll-hint {
+  margin-top: 75px;
+  color: var(--mint);
+  font-size: 11px;
+  letter-spacing: 3px;
+  animation: breathe 3s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  50% {
+    opacity: .4;
+    transform: translateY(8px);
   }
 }
 
 section {
-  padding: 80px 8%;
-  border-top: 1px solid #ffffff15;
+  padding: 95px max(7%, 24px);
+  border-top: 1px solid #f5cf7525;
+}
+
+.story {
+  background:
+    radial-gradient(
+      ellipse at top right,
+      #386c5040,
+      transparent 60%
+    ),
+    #153f34;
+}
+
+.sheet {
+  background: #1c4b3b;
+}
+
+.section-label {
+  color: var(--gold);
+  font-family: "DM Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 3px;
 }
 
 h2 {
-  font-family: 'Cormorant Garamond', serif;
-  color: #ef9fbd;
-  font-size: 48px;
-  font-weight: 400;
+  margin: 15px 0 30px;
+  color: var(--light-pink);
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(42px, 7vw, 75px);
+  font-weight: 600;
+  font-style: italic;
 }
 
 section p {
-  line-height: 1.9;
-  color: #c5c9bd;
-  max-width: 700px;
+  color: #e1eee3;
+  max-width: 750px;
+  font-size: 18px;
+  line-height: 2;
+}
+
+.fairy-line {
+  width: 110px;
+  height: 2px;
+  margin: 35px 0;
+  background: linear-gradient(
+    90deg,
+    var(--pink),
+    var(--gold),
+    transparent
+  );
+}
+
+.placeholder {
+  margin-top: 35px;
+  padding: 35px;
+  max-width: 750px;
+  border: 1px solid #f5cf7545;
+  border-radius: 14px;
+  background: #ffffff08;
+}
+
+.placeholder p {
+  margin-bottom: 0;
+}
+
+footer {
+  padding: 35px 7%;
+  text-align: center;
+  color: var(--mint);
+  background: #12372d;
+  font-size: 13px;
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 20px 5%;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
+
+  nav {
+    gap: 13px;
+  }
+
+  nav a {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  h1 {
+    letter-spacing: -3px;
+  }
+
+  .ornament {
+    letter-spacing: 8px;
+  }
+
+  section {
+    padding: 75px 7%;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .letter { animation: none; opacity: .35; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+
+  .symbol {
+    opacity: .55;
+  }
 }
 </style>
 </head>
@@ -136,7 +360,8 @@ section p {
 <body>
 
 <header>
-  <div class="logo">AUGURE</div>
+  <a class="logo" href="#">Áugure ✧</a>
+
   <nav>
     <a href="#historia">HISTÓRIA</a>
     <a href="#ficha">FICHA</a>
@@ -144,54 +369,130 @@ section p {
 </header>
 
 <main>
+
   <div class="hero">
+
     <div class="magic" id="magic"></div>
 
-    <div class="content">
-      <div class="subtitle">
-        ACANTHUS · DESTINO · TEMPO
+    <div class="hero-content">
+
+      <div class="eyebrow">
+        ✧ ACANTHUS · DESTINO · TEMPO ✧
       </div>
 
-      <h1>Hanna</h1>
+      <h1>Áugure</h1>
+
+      <div class="ornament">
+        ✦ ❀ ✧ ❀ ✦
+      </div>
 
       <div class="description">
-        Há palavras que o destino ainda não escreveu.
+        Em busca da palavra perfeita.
       </div>
+
+      <div class="scroll-hint">
+        DESVENDAR ↓
+      </div>
+
     </div>
   </div>
 
-  <section id="historia">
+  <section class="story" id="historia">
+
+    <div class="section-label">
+      ✿ ERA UMA VEZ...
+    </div>
+
     <h2>Entre o Ontem e o Amanhã</h2>
+
+    <div class="fairy-line"></div>
+
     <p>
-      Algumas histórias não começam com uma escolha.
-      Começam com uma palavra ainda não pronunciada.
+      Algumas histórias são escritas com tinta.
+      Outras, com os fios invisíveis do destino.
     </p>
+
+    <p>
+      A história de Áugure pertence àquelas
+      que ainda estão sendo contadas.
+    </p>
+
   </section>
 
-  <section id="ficha">
+  <section class="sheet" id="ficha">
+
+    <div class="section-label">
+      ✧ MAGO: O DESPERTAR · 2ª EDIÇÃO
+    </div>
+
     <h2>O Grimório</h2>
-    <p>
-      Em breve, a ficha e os segredos de Hanna.
-    </p>
+
+    <div class="fairy-line"></div>
+
+    <div class="placeholder">
+      <div class="section-label">
+        ✿ OS SEGREDOS DE ÁUGURE
+      </div>
+
+      <p>
+        Em breve, os atributos, Arcanas,
+        magias, méritos e mistérios
+        da nossa pequena bruxa do destino.
+      </p>
+    </div>
+
   </section>
+
 </main>
 
+<footer>
+  ✧ Áugure · Em busca da palavra perfeita ✧
+</footer>
+
 <script>
-const magic = document.getElementById('magic');
-const symbols = ['a','æ','✦','?','∞','é','✧','h','Ω'];
+const magic = document.getElementById("magic");
 
-for (let i = 0; i < 32; i++) {
-  const letter = document.createElement('span');
-  letter.className = 'letter';
-  letter.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+const symbols = [
+  "a", "æ", "é", "?", "!",
+  "✦", "✧", "✿", "❀",
+  "♡", "∞", "h", "Ω"
+];
 
-  letter.style.left = Math.random() * 100 + '%';
-  letter.style.top = Math.random() * 100 + '%';
-  letter.style.fontSize = (15 + Math.random() * 30) + 'px';
-  letter.style.animationDelay = (-Math.random() * 12) + 's';
-  letter.style.animationDuration = (9 + Math.random() * 9) + 's';
+const colors = [
+  "#ff65ad",
+  "#ffc2df",
+  "#f5cf75",
+  "#a7f2bc",
+  "#ffffff"
+];
 
-  magic.appendChild(letter);
+for (let i = 0; i < 65; i++) {
+  const symbol = document.createElement("span");
+
+  symbol.className = "symbol";
+
+  symbol.textContent =
+    symbols[Math.floor(Math.random() * symbols.length)];
+
+  symbol.style.left =
+    Math.random() * 100 + "%";
+
+  symbol.style.top =
+    Math.random() * 100 + "%";
+
+  symbol.style.fontSize =
+    (14 + Math.random() * 28) + "px";
+
+  symbol.style.color =
+    colors[Math.floor(Math.random() * colors.length)];
+
+  symbol.style.animationDuration =
+    (9 + Math.random() * 12) + "s";
+
+  symbol.style.animationDelay =
+    (-Math.random() * 20) + "s";
+
+  magic.appendChild(symbol);
 }
 </script>
 
