@@ -41,23 +41,28 @@ footer{text-align:center;padding:32px;color:#d5d4ae;font-size:20px}
 .hero::after{background:radial-gradient(ellipse 75% 35% at 50% 50%,rgba(15,5,25,.6),transparent)}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important}}
 
-/* Manifestação secreta de Teresa — somente desktop */
-.teresa-veil{position:fixed;inset:0;z-index:9999;overflow:hidden;pointer-events:none;visibility:hidden;opacity:0;background:rgba(0,0,0,0);transition:opacity .2s;contain:layout paint}
+/* Teresa: corrupção do cenário, sem apagar o site completamente. */
+.teresa-veil{position:fixed;inset:0;z-index:9999;overflow:hidden;pointer-events:none;visibility:hidden;opacity:0;contain:layout paint}
 .teresa-veil.active{visibility:visible;opacity:1}
-.teresa-dark{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 48%,rgba(0,0,0,.97),#000 83%);opacity:0}
-.teresa-hair{position:absolute;inset:-4%;width:108%;height:108%;overflow:visible}
-.teresa-hair path{fill:none;stroke:#020104;stroke-linecap:round;stroke-width:var(--hair-width,5);stroke-dasharray:var(--hair-length,1800);stroke-dashoffset:var(--hair-length,1800);filter:drop-shadow(0 0 3px #080407)}
-.teresa-hair path:nth-child(4n){stroke:#100910}
-.teresa-hair path:nth-child(7n){stroke:#1c111b;stroke-width:2}
-.teresa-message{position:absolute;left:5%;right:5%;top:50%;transform:translateY(-45%) scale(.96);text-align:center;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:clamp(43px,7.5vw,105px);font-weight:400;letter-spacing:.045em;color:#e0d7d7;text-shadow:2px 2px 0 #290b19,-2px -1px 2px #b0a0a4,0 0 24px #9c687866;opacity:0}
-.teresa-veil.active .teresa-dark{animation:teresaDark 4.8s both}
-.teresa-veil.active .teresa-hair path{animation:teresaGrow 4.8s cubic-bezier(.35,0,.58,1) both;animation-delay:var(--hair-delay,0s)}
-.teresa-veil.active .teresa-message{animation:teresaWords 4.8s both}
-body.teresa-shaking .site-header,body.teresa-shaking main,body.teresa-shaking footer{animation:teresaShake .075s steps(2,end) infinite}
-@keyframes teresaGrow{0%,5%{stroke-dashoffset:var(--hair-length,1800);opacity:0}12%{opacity:1}54%,80%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:calc(-1 * var(--hair-length,1800));opacity:0}}
-@keyframes teresaDark{0%,10%{opacity:0}37%,77%{opacity:1}100%{opacity:0}}
-@keyframes teresaWords{0%,37%{opacity:0;transform:translateY(-44%) scale(.96);filter:blur(7px)}47%,70%{opacity:1;transform:translateY(-50%) scale(1);filter:blur(0)}81%,100%{opacity:0;transform:translateY(-54%) scale(1.04);filter:blur(5px)}}
-@keyframes teresaShake{0%{transform:translate(2px,-1px)}25%{transform:translate(-2px,1px)}50%{transform:translate(1px,2px)}75%{transform:translate(-1px,-2px)}100%{transform:translate(0,0)}}
+/* A página permanece reconhecível sob a sombra violeta. */
+.teresa-dark{position:absolute;inset:0;background:radial-gradient(ellipse 38% 40% at 50% 48%,rgba(18,10,22,.75),rgba(12,6,17,.68) 62%,rgba(8,4,12,.82) 100%);opacity:0;will-change:opacity}
+.teresa-veil::before{content:"";position:absolute;inset:0;z-index:2;opacity:0;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0 6px,rgba(9,5,13,.12) 7px,transparent 8px);animation:none}
+.teresa-hair{position:absolute;inset:-3%;width:106%;height:106%;z-index:3;overflow:hidden}
+.teresa-hair path{fill:none;stroke:#08060c;stroke-linecap:round;stroke-width:var(--hair-width,4);stroke-dasharray:var(--hair-length,1200);stroke-dashoffset:var(--hair-length,1200);opacity:0}
+.teresa-hair path:nth-child(4n){stroke:#241722}
+.teresa-hair path:nth-child(7n){stroke:#3c2937;stroke-width:1.4}
+.teresa-message{position:absolute;z-index:4;left:5%;right:5%;top:50%;transform:translateY(-50%);text-align:center;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:clamp(15px,1.3vw,19px);font-weight:400;letter-spacing:.065em;color:#c0b6bd;text-shadow:0 1px 3px #0c0710;opacity:0}
+.teresa-veil.active .teresa-dark{animation:teresaCorrupt 5.4s ease-in-out both}
+.teresa-veil.active::before{animation:teresaStatic 5.4s steps(2,end) both}
+.teresa-veil.active .teresa-hair path{animation:teresaCreep 5.4s ease-in-out both;animation-delay:var(--hair-delay,0s)}
+.teresa-veil.active .teresa-message{animation:teresaWhisper 5.4s both}
+body.teresa-shaking .site-header,body.teresa-shaking main,body.teresa-shaking footer{animation:teresaTremor .14s steps(2,end) infinite}
+/* A sombra chega, mas não vira uma tela preta chapada. */
+@keyframes teresaCorrupt{0%,9%{opacity:0}20%{opacity:.25}43%,72%{opacity:1}88%{opacity:.65}100%{opacity:0}}
+@keyframes teresaCreep{0%,8%{stroke-dashoffset:var(--hair-length,1200);opacity:0}18%{opacity:.85}49%,74%{stroke-dashoffset:0;opacity:.95}90%{opacity:.6}100%{stroke-dashoffset:calc(-.18 * var(--hair-length,1200));opacity:0}}
+@keyframes teresaWhisper{0%,42%{opacity:0}49%,68%{opacity:.92}78%,100%{opacity:0}}
+@keyframes teresaStatic{0%,15%,100%{opacity:0}18%,22%{opacity:.18}24%,41%{opacity:0}44%,72%{opacity:.11}76%,86%{opacity:0}88%{opacity:.16}92%{opacity:0}}
+@keyframes teresaTremor{0%{transform:translate(1px,0)}25%{transform:translate(-1px,1px)}50%{transform:translate(0,-1px)}75%{transform:translate(1px,1px)}100%{transform:none}}
 @media(max-width:700px),(pointer:coarse){.teresa-veil{display:none!important}}
 @media(prefers-reduced-motion:reduce){body.teresa-shaking .site-header,body.teresa-shaking main,body.teresa-shaking footer{animation:none!important}}
 </style>
@@ -221,7 +226,7 @@ update();
  function createHair(){
   if(group.childNodes.length)return;
   const fragment=document.createDocumentFragment();
-  for(let i=0;i<58;i++){
+  for(let i=0;i<38;i++){
    const side=i%4;let x,y,endX,endY;
    if(side===0){x=between(-50,1050);y=-35;endX=between(180,820);endY=between(380,760)}
    else if(side===1){x=1050;y=between(-40,740);endX=between(100,650);endY=between(110,620)}
@@ -231,9 +236,9 @@ update();
    const bend=between(-210,210),bend2=between(-150,150);
    const d=`M ${x.toFixed(1)} ${y.toFixed(1)} C ${(x+dx*.25+bend).toFixed(1)} ${(y+dy*.16).toFixed(1)}, ${(x+dx*.52-bend2).toFixed(1)} ${(y+dy*.65).toFixed(1)}, ${endX.toFixed(1)} ${endY.toFixed(1)}`;
    const path=document.createElementNS(NS,'path');path.setAttribute('d',d);
-   const length=1400;path.style.setProperty('--hair-length',length);
-   path.style.setProperty('--hair-width',between(1.5,12).toFixed(1));
-   path.style.setProperty('--hair-delay',`${between(0,.65).toFixed(2)}s`);
+   const length=Math.ceil(path.getTotalLength())+1;path.style.setProperty('--hair-length',length);
+   path.style.setProperty('--hair-width',between(.8,7).toFixed(1));
+   path.style.setProperty('--hair-delay',`${between(0,.35).toFixed(2)}s`);
    fragment.appendChild(path);
   }
   group.appendChild(fragment);
@@ -246,7 +251,7 @@ update();
   veil.classList.remove('active');void veil.offsetWidth;
   veil.classList.add('active');
   if(!reduced.matches)document.body.classList.add('teresa-shaking');
-  finishTimer=setTimeout(end,5500);
+  finishTimer=setTimeout(end,5900);
  }
  document.addEventListener('keydown',event=>{
   if(event.key==='Escape'&&busy){end();return}
@@ -262,4 +267,3 @@ update();
 </script>
 </body>
 </html>
-
