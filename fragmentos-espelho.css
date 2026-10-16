@@ -1,0 +1,26 @@
+/* <fragmentos-espelho>: cacos triangulares de vidro que carregam traços de um retrato (olho, nariz, boca),
+   derivam pela área do elemento pai e tombam em 3D. Só transform e opacity animam. Usado junto com fragmentos-espelho.js. */
+fragmentos-espelho{position:absolute;inset:0;z-index:1;display:block;overflow:hidden;pointer-events:none;contain:layout paint;--portrait-alpha:.6;--hero-w:100vw;--hero-h:100svh}
+fragmentos-espelho .shard-orbit{position:absolute;left:0;top:0;will-change:transform}
+/* O caco tomba em 3D (perspective + rotate3d) dentro da órbita 2D e preserva o 3D para que as laterais apareçam como espessura. */
+fragmentos-espelho .shard{position:absolute;inset:0;will-change:transform;transform-style:preserve-3d}
+/* Fundo opaco na face: o filtro pode deixar franjas transparentes perto das arestas, e sem isso as laterais atrás apareceriam como linhas. */
+fragmentos-espelho .shard-face{position:absolute;inset:0;overflow:hidden;clip-path:polygon(var(--shape));backface-visibility:visible;background:#1a0a18}
+/* Laterais do prisma: um retângulo por segmento do contorno, girado 90° para trás da face. Só aparecem quando o caco inclina. */
+fragmentos-espelho .shard-side{position:absolute;left:0;top:0;transform-origin:0 0;backface-visibility:visible;background:linear-gradient(90deg,rgba(255,226,160,.5),rgba(245,193,111,.5) 35%,rgba(255,240,200,.5) 65%,rgba(226,152,58,.5))}
+/* Lente: espelha, amplia e inclina o conteúdo, e o filtro SVG (injetado pelo JS) retorce e risca o vidro. */
+fragmentos-espelho .shard-lens{position:absolute;inset:0;transform:scale(var(--zoom,1.1)) scaleX(var(--flip,-1)) skewX(var(--skew,0deg));filter:url(#fe-warp)}
+/* Espelho: reflexo da imagem de fundo alinhado ao fundo real (anda com a inversa da órbita). Cobre o dobro da área, repetido, para cacos na borda não ficarem vazios. */
+fragmentos-espelho .shard-mirror{position:absolute;left:calc(var(--hero-w) * -.5);top:calc(var(--hero-h) * -.5);width:calc(var(--hero-w) * 2);height:calc(var(--hero-h) * 2);background-position:center;background-size:var(--cover-w,100%) var(--cover-h,100%);background-repeat:repeat;will-change:transform;filter:saturate(1.2) brightness(1.1)}
+/* Vidro: recorte fixo do retrato, escolhido por caco, que viaja junto com ele. O retrato ativo fica translúcido por cima do reflexo. */
+fragmentos-espelho .shard-glass{position:absolute;inset:0;filter:hue-rotate(var(--hue,0deg)) saturate(1.2) contrast(1.18) brightness(1.15)}
+fragmentos-espelho .glass-portrait{position:absolute;inset:0;background-position:center;background-repeat:no-repeat;background-size:cover;opacity:0;transition:opacity 1.6s ease}
+fragmentos-espelho .glass-portrait.ativo{opacity:var(--portrait-alpha)}
+fragmentos-espelho .shard-sheen{position:absolute;inset:0;will-change:opacity;background:linear-gradient(var(--sheen-angle,115deg),rgba(255,238,205,.4) 0%,rgba(255,238,205,.1) 30%,rgba(255,255,255,0) 50%,rgba(245,193,111,.16) 100%)}
+fragmentos-espelho .shard-edge{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+fragmentos-espelho .shard-edge polygon,fragmentos-espelho .shard-edge path{fill:none;vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round}
+fragmentos-espelho .shard-edge .edge-glow{stroke:#f5c16f;stroke-width:9;stroke-opacity:.34}
+fragmentos-espelho .shard-edge .edge-line{stroke:url(#fe-iris);stroke-width:2.4;stroke-opacity:.95}
+fragmentos-espelho .shard-edge .crack-shadow{stroke:#1a0a18;stroke-width:1.6;stroke-opacity:.4}
+fragmentos-espelho .shard-edge .crack{stroke:#ffe0a0;stroke-width:.9;stroke-opacity:.6}
+@supports not (clip-path:polygon(0 0,1px 0,0 1px)){fragmentos-espelho{display:none}}
