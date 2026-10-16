@@ -85,6 +85,45 @@ body.teresa-shaking .site-header,body.teresa-shaking main,body.teresa-shaking fo
 .story-chapter:first-of-type p:first-of-type::first-letter{float:left;font-family:'Cormorant Garamond',Georgia,serif;font-size:5.3em;font-weight:600;line-height:.73;padding:.12em .12em 0 0;color:#f3c985;text-shadow:1px 1px 0 #a55b80,0 0 18px rgba(245,193,111,.17)}
 @media(max-width:700px){section p{font-size:17px;line-height:1.7}#historia{padding:75px 23px}.story-intro{margin-bottom:70px}.story-chapter h3{font-size:clamp(31px,7.6vw,39px);gap:12px}.story-chapter p{font-size:17px;line-height:1.7}.story-chapter:first-of-type p:first-of-type::first-letter{font-size:4.7em;padding-top:.14em}.story-number{font-size:12px}}
 @media(max-width:360px){.story-chapter h3{font-size:30px}.story-chapter p,section p{font-size:16px}}
+
+/* Letras mágicas nas margens da história */
+#historia {
+  position: relative;
+  isolation: isolate;
+}
+
+.story-margin-sky {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  contain: layout paint;
+}
+
+#historia .story-intro,
+#historia .story-chapter {
+  position: relative;
+  z-index: 1;
+}
+
+.story-margin-sky .sky-glyph {
+  animation-name: letterStar;
+}
+
+@media (max-width: 1100px), (pointer: coarse) {
+  .story-margin-sky {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .story-margin-sky {
+    display: none;
+  }
+}
+
+
 </style>
 </head>
 <body>
@@ -112,6 +151,7 @@ body.teresa-shaking .site-header,body.teresa-shaking main,body.teresa-shaking fo
 <a class="scroll" href="#historia" aria-label="Ir para a história">⌄</a>
 </div>
 <section id="historia" aria-labelledby="historia-titulo">
+<div class="story-margin-sky" id="story-margin-sky" aria-hidden="true"></div>
 <div class="story-intro"><div class="kicker">I · ERA UMA VEZ</div><h2 id="historia-titulo">Entre o Ontem e o Amanhã</h2><div class="story-flourish" aria-hidden="true">✧</div></div>
 <article class="story-chapter" aria-labelledby="capitulo-1"><span class="story-number">CAPÍTULO I</span><h3 id="capitulo-1">A Menina Peculiar</h3>
 <p>Hanna Virelli sempre foi uma criança um tanto peculiar. Enquanto outras crianças inventavam histórias para seus brinquedos, ela inventava personalidades para as letras do alfabeto.</p>
@@ -217,6 +257,58 @@ document.addEventListener('keydown',event=>{
 window.addEventListener('pagehide',end);
 })();
 </script>
+
+<script>
+(() => {
+  'use strict';
+
+  const sky = document.getElementById('story-margin-sky');
+  if (!sky) return;
+
+  const chars = Array.from(
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzÆŒæœαβγδεζηθλμξπρστυφχψω'
+  );
+
+  const fragment = document.createDocumentFragment();
+  const count = Math.max(24, Math.min(90,
+    Math.ceil(sky.parentElement.scrollHeight / 65)
+  ));
+
+  for (let i = 0; i < count; i++) {
+    const el = document.createElement('span');
+    el.className = 'sky-glyph';
+
+    // Apenas nas margens externas.
+    const leftSide = i % 2 === 0;
+    const x = leftSide
+      ? 2 + Math.random() * 12
+      : 86 + Math.random() * 12;
+
+    const y = Math.random() * 100;
+
+    el.textContent = chars[Math.floor(Math.random() * chars.length)];
+    el.style.left = x + '%';
+    el.style.top = y + '%';
+    el.style.fontSize = (15 + Math.random() * 13) + 'px';
+    el.style.setProperty('--high', (0.75 + Math.random() * 0.25).toFixed(2));
+    el.style.setProperty('--duration', (5.5 + Math.random() * 5).toFixed(2) + 's');
+    el.style.setProperty('--delay', (-Math.random() * 11).toFixed(2) + 's');
+
+    el.addEventListener('animationiteration', () => {
+      let next = el.textContent;
+      while (next === el.textContent) {
+        next = chars[Math.floor(Math.random() * chars.length)];
+      }
+      el.textContent = next;
+    });
+
+    fragment.appendChild(el);
+  }
+
+  sky.appendChild(fragment);
+})();
+</script>
+
 </body>
 </html>
 
